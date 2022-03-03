@@ -1,0 +1,3444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{59796800-CDD6-4099-A142-03D71863FE13}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>US_EXCHANGER</RootNamespace>
+    <AssemblyName>US_EXCHANGER</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\US_EXCHANGER\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>es-PE</TargetCulture>
+    <ProductName>UnoExchange</ProductName>
+    <PublisherName>Unosoft</PublisherName>
+    <SuiteName>Unosoft Suite</SuiteName>
+    <MinimumRequiredVersion>1.0.0.0</MinimumRequiredVersion>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>77987D8B637B47470E33A876473CACCAD319128F</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>US_EXCHANGER_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>usicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EUTIL">
+      <HintPath>..\..\Users\Leonardo\OneDrive - SEIDOR SA\Escritorio\EUTIL\EUTIL\bin\Release\EUTIL.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.10.3.6\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroSet UI, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroSet_UI.2.0.0\lib\net45\MetroSet UI.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aplicacion.cs" />
+    <Compile Include="Context\ApplicationDbContext.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\EnumsOperacion.cs" />
+    <Compile Include="Helpers\Utils.cs" />
+    <Compile Include="ModelEntity\ACA_CRONOGRAMA_PAGO_ALUMNO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\ACA_MATRICULA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\ACA_MATRICULA_CURSO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\ACA_PENSION_ALUMNO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\ACFSS_OBTENER_LISTACTIVOFIJO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\AFI_ACTIVO_FIJO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\AFI_DEPRECIACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\ALE_VW_PAGO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\APPMOV_ACCESO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\APPMOV_ACCESO_USUARIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\APP_TOKEN.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\BIV_DETALLE_TABLA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\BI_ALL_COTIZACION_VENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\BI_ALL_VENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\BI_CUOTA_ALL_VENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\BI_DETALLE_TABLA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\BI_LISTA_COTIZACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\BI_LISTA_PEDIDO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\BI_TABLA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\Categoria.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CLI_CITA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CLI_HISTORIA_PACIENTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\COM_COMISION_FACT.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONF_ALERTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONF_ALUS.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONF_CONDICION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONF_DETALLE_CONDICION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONF_DISENO_DOCUMENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONF_DOCUMENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONF_ECE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONF_PARAMETRO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONF_QUERY.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONF_SERVIDOR_BD.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONF_SWT_MD.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONF_USAL.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONF_VIGENCIA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTASS_LIBDIARIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTASS_LIBMAYOR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTASS_OBTENER_TIPO_CAMBIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTASS_PLE_LIBDIARIO_EXCEL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTASS_PLE_LIBMAYOR_EXCEL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTAVW_LIBRO_DIARIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTAVW_LIBRO_MAYOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_ANALITICA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_DETALLE_CC_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_DETALLE_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_DLINEA_ESFI.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_LINEA_ESFI.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_MODELO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_PLAN_CUENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_PROCESO_GESTION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_PROD_CTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_RUBRO_ESFI.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_SALDOSA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_SALDOSAG.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_SALDOSD.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_SALDOSDG.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_TIPO_CAMBIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CONTA_TOPERACION_CIERRE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CRM_ANEXO_SEGUIMIENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CRM_APLAZAR_AVISO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CRM_AVISO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CRM_CAMPANA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CRM_CAMPANA_CLIENTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CRM_LISTA_MARKETING.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CRM_LISTA_MKT_INTEGRANTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CRM_PRODUCTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\CRM_SEGUIMIENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\DbModels.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="ModelEntity\DbModels.Designer.cs">
+      <DependentUpon>DbModels.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="ModelEntity\dtproperty.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\dt_getpropertiesbyid_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\dt_getpropertiesbyid_u_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\FE_DETALLE_RESUMEN_BAJA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\FE_RESUMEN_BAJA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetClientDefault_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetCurrentAccount_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetCurrentStock_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetDataDTabla_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetDataListaPrecio_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetDataMaestro_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetDataNameDTabla_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetDataPedidoDetalleID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetDataPedidoID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetDataPedido_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetDataPersona_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetDataProductoID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetDataProductoVta_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetDetailsCurrentAccount_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetLoginUser_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetMesaNameZone_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetPedidoIDZonaMesa_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetProductNameCategory_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetProductName_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetValidarUser_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GetValidatedStatusTable_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\GET_DATA_REQUISICIONES.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\Kng_ObtenerCategorias_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\Kng_ObtenerImagenesCategoria_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\Kng_ObtenerImagenesProducto_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\Kng_ObtenerProductos2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\Kng_ObtenerProductos_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\LOG_APLICACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\LOG_CAMBIO_CAMPOS.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CDISENO_DOCUMENTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CLIENTE_PRODUCTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_COMPRAS_CENTRO_COSTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_CAMBIOMESA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_CANTVENDIDA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_COMPARATIVO_CCSCC_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_COTI_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_FE2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_FE3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_FE4_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_FEALL2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_FEALL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_FEPARQ_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_FE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_NINS_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_RESTFEALL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_SINFE2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_SINFE3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_SINFE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_DOCUMENTO_TK_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_INVENTARIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_ITEM_DOCUMENTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_NS_ALL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_PED_RESTFEALL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSULTA_TK_TEMP_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONSUMO_COMENSAL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CONTROL_STOCK_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_CTA_CTE_COMENSAL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_DAOT_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_DDISENO_DOCUMENTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_DDISENO_GUIA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_DISENO_GUIA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_DORDEN_PEDIDO_ADESPACHAR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_HELP_PRODUCT_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_INVENTARIO_FECHA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_INVENTARIO_PERMANENTE_SUNAT2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_INVENTARIO_PERMANENTE_SUNAT_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_INVENTARIO_VALORIZADO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_KARDEX_PRODUCTO_DETALLE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_KARDEX_PRODUCTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_KARDEX_PRODUCTO_VALORIZADO3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_KARDEX_PRODUCTO_VALORIZADO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_LISTA_PRECIO_PRODUCTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_LISTA_PRECIO_X_CLIENTE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_LISTA_PRECIO_X_PRODUCTO2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_LISTA_PRECIO_X_PRODUCTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ACTIVO_FIJO_ID_PRO_ASIG_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ACTIVO_FIJO_ID_PRO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_APERTURA_CAJA_FECHA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_APERTURA_CAJA_ID2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_APERTURA_CAJA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_APERTURA_CAJA_PERIODO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_APERTURA_CAJA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_APERTURA_CAJA_TC_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_APERTURA_CAJERO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ARQUEO_CAJA_FECHA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ARQUEO_CAJA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ARQUEO_CAJA_PERIODO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ARQUEO_CAJA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CAJA_ID2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CAJA_ID3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CAJA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CANJE_LETRA_CLI_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CANJE_LETRA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CIERRE_DIARIO_CAJA_REST_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CIERRE_DIARIO_CAJA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CIERRE_FECHA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CIERRE_MES_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_COBRANZA_DOCUMENTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_COBRANZA_PERIODO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_COMANDARI_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_COMANDAR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_COMANDA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_COMISION_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_COMISION_VEND_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_COMPARATIVO_SUBCENTRO_COSTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONCEPTO_PERSONA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONDICION_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONFDOCUMENTO_COMPRA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONFDOCUMENTO_VENTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONFIDDDETALLE_GUIA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONFIDDOCUMENTO_COMPRA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONFIDDOCUMENTO_COMPRA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONFIDDOCUMENTO_VENTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONFIDPEDIDO_VENTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONFPARAMETRO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONFPEDIDO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONSUMO2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONSUMO_CENTRO_COSTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONSUMO_PRODUCTO2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONSUMO_PRODUCTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONSUMO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONSUMO_TRABAJADOR2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CONSUMO_TRABAJADOR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_COTIZACION_COMPRA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_COTIZACION_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_COTIZACION_X_CODIGO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CTA_CTE_CLIENTE2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CTA_CTE_CLIENTEV2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CTA_CTE_CLIENTE_FECHA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CTA_CTE_CLIENTE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CTA_CTE_PERSONA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CTA_CTE_PROVEEDOR2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CTA_CTE_PROVEEDOR3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CTA_CTE_PROVEEDORV2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CTA_CTE_PROVEEDOR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_CUENTA_PENDIENTE_CLIENTE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DATO_DOCUMENTO2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DATO_DOCUMENTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DCONDICION_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DESTINO_COMANDA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETALLE_CAJA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETALLE_CONSUMO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETALLE_COTIZACION_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETALLE_GUIA2_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETALLE_MOVIMIENTO_DIARIO2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETALLE_MOVIMIENTO_DIARIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETALLE_NUMERO_DOCUMENTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETALLE_PEDIDO_GUIA2_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETALLE_VENTA_ID2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETALLE_VENTA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETALLE_VENTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETCOTIZACION_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETDOCUMENTO_COMPRA2_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETDOCUMENTO_COMPRA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETORDEN_COMPRA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETORDEN_PEDIDOS_FACTURAR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETORDEN_PEDIDO_FACTURAR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETORDEN_PEDIDO_FACTURAR_SD_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETORDEN_PEDIDO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETORDEN_PEDIDO_X_VENDEDOR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DETPRODUCTO_PTOVTA4_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DINVENTARIO_FISICO2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DINVENTARIO_FISICO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DLIBBCO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTONT_VENTA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTONT_VENTA3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTONT_VENTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_CANJEADO_C_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_CANJEADO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_COBRANZA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_COBRANZA3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_COBRANZA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_COMPRA2_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_COMPRA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_COMPRA3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_COMPRA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_COMPRA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_FECHA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_FECHA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_VENTA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_VENTA3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_VENTA4_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_VENTA5_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_VENTA_ID2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_VENTA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_VENTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DOCUMENTO_VENTA_TC_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DPRESUPUESTO_ID_COTI_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DPRESUPUESTO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DSALIDA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DSTOCK_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DTCHILDPRESUPUESTO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DTORDEN_SERVICIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DTORDEN_TRABAJO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DTPRESUPUESTO_ID2_COTI_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DTPRESUPUESTO_ID2_ORPE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DTPRESUPUESTO_ID2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DTPRESUPUESTO_ID_OP_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_DTPRESUPUESTO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_EMPRESA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_EMPRESA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_EMPRESA_USUARIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ENTREGA_RENDIR_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ESTADO_FE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_EXPLOSION_MATERIAL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_FACTURAR_VARIAS_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_FACTURA_COMPRA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_FECHA_AREA_PERSONA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_FLUJO_CAJA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_FLUJO_CAJA_CONS_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_FLUJO_CAJA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_FORMS_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_GNI_DFAC_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_GNS_DFAC_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_GR_PEDIDO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_GS_PEDIDO_ID2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_GS_PEDIDO_ID3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_GS_PEDIDO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_GUIA_REMISION_APERT_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_GUIA_REMISION_PROD_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_GUIA_REMISION_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ITEMCOD_INVENTARIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ITEMS_ADICIONALES_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ITEMS_ADICIONAL_PEDIDO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ITEM_INVENTARIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ITEM_LIQUIDACION_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LETRA_PENDIENTE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LIBBCO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LIBBCO_TC_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LISTA_MATERIAL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LISTA_PRECIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LISTPRODUCTOLAB_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LISTPRODUCTOV2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LISTPRODUCTOV4_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LISTPRODUCTO_INVENTARIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LISTPRODUCTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LISTPRODUCTO_UNDS2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LISTPRODUCTO_UNDS3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LISTPRODUCTO_UNDS_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LOTE_GUIA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_LOTE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_MAQUINA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_MAQUINA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_MATERIAL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_MOVIMIENTO_BANC_DET_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_MOVIMIENTO_BANC_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_MOVIMIENTO_CLIENTE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_MOVIMIENTO_RELACIONADO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_NOTA_INGRESO_SALIDA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_NOTA_INGR_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_NUMERO_CANJE_C_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_NUMERO_CANJE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_NUMERO_DOCUMENTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ORDEN_COMPRA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ORDEN_COMPRA_PRV2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ORDEN_COMPRA_PRV_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ORDEN_COMPRA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ORDEN_PEDIDO_FACTURAR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ORDEN_PEDIDO_FACTURAR_VARIAS_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ORDEN_PEDIDO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ORDEN_PEDIDO_X_CODIGO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_ORDEN_TRABAJO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PAGO_CLIENTE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PAGO_PROVEEDOR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PARAMETRO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PEDIDO_VENDEDOR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PERSONA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PERSONA3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PERSONALAB_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PERSONA_CONTACTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PERSONA_FILTRO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PERSONA_ID2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PERSONA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PERSONA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PERSONA_RUC2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PERSONA_RUC3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PERSONA_RUC_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PLAN_PRESUPUESTO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PLAN_PRESUPUESTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRESENTACION_PRODUCTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRESUPUESTO_ID_AP2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRESUPUESTO_ID_AP_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRESUPUESTO_ID_COTI_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRESUPUESTO_ID_ORPE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRESUPUESTO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRESUPUESTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRESUPUESTO_SERV_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRE_CLIE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODPTOVTA_OP_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTOV2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTOV4_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_ABR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_ADICIONALES_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_ALMACEN_SERVICIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_CATEGORIA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_COTIZACION_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_FILTRO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_GASTOS_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_ID2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_ID3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_INVENTARIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_ITEMS_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_MASIVA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_MASVENDIDO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_MAS_VENDIDO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_NOMBRECATEGORIA_FECHA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_NOMBRECATEGORIA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_NOMBRECATEGORIA_UNIDAD_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_PRPROV_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_PTOV4_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_PTOVTA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_PTOVTA3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_PTOVTA4_2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_PTOVTA4_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_PTOVTA5_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_PTOVTA6_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_PTOVTAV2_1_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_PTOVTAV2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_PTOVTAV3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_PTOVTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_PTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_SEGUIMIENTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_STOCK_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_SUCURSAL_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_TIPO_PROD_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_TM_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PRODUCTO_X_NOMBRE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PROSPECTO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_PROSPECTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_RECETA_VENTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_RECURSOPRESUPUESTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_REFERENCIA_PERSONA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_REFERENCIA_PROSPECTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_REGISTRO_COMPRA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_REGISTRO_VENTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_RELACION_CONTRATO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_REPINVENTARIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_REPORTE_VENTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_REQUERIMIENTO_COMPRA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_REQUERIMIENTO_MATERIAL_FECHA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_RESUMEN_CIERRE_DIARIO_VENTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_RESUMEN_COBRO_CLI_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_RESUMEN_DIARIO_VENTA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_RESUMEN_DIARIO_VENTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_RESUMEN_OC_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_RESUMEN_PAGO_PRV_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_RESUMEN_VENTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCKS2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCKS_PEDIDO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCKS_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCKUBICACION_SUCURSAL2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCK_LOTE_FV_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCK_LOTE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCK_SERIE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCK_SUCURSAL2X_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCK_SUCURSAL2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCK_SUCURSAL3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCK_SUCURSAL4_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCK_SUCURSAL5_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCK_SUCURSALX2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCK_SUCURSALX_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCK_SUCURSAL_CC_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_STOCK_SUCURSAL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_SUCURSAL_EMPRESA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_SUCURSAL_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_SUCURSAL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_TABLA_CODIGO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_TABLA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_TABLA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_TD_PTOVTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_TIPO_CAMBIO_FECHA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_TIPO_CAMBIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_TRANSFERENCIA_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_TRANSFERENCIA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_TRASLADO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_USUARIO_FORM_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_USUARIO_ID_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_USUARIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VARIOS_PRODUCTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VENDEDOR_VENDEMAS_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VENTA_CLIENTE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VENTA_COTIZACION_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VENTA_MASIVA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VENTA_MASIVAV2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VENTA_MASIVA_FECHA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VENTA_MASIVA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VENTA_PEDIDO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VENTA_PERIODOR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VENTA_PERIODO_DELIVERY_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VENTA_PERIODO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VENTA_UTIL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VTA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_OBTENER_VTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_ORDEN_PEDIDO_ADESPACHAR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_ORDEN_SERVICIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_PORCENTAJE_COTIZACION_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_PRECIO_PRODUCTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_PRECIO_TIPO_CLIENTE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_PRECIO_TIPO_CLIENTE_UND2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_PRECIO_TIPO_CLIENTE_UND_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_PROOFER_PRODUCTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_ATR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_CAJA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_CAJAPARQ_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_CAJAR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_CAJA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_DCAJA1_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_DCAJA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_DCAJA3_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_DCAJA4_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_IECAJA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_MZP_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_PMV_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_RKDIARIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_RMR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_RVDM_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REPORTE_RVD_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_REQ_PRESUPUESTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_RESUMEN_CAJAR_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_RES_KARDEX_VALORIZADO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_SALDO_NEGATIVO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_STOCK_ALL_ALMACEN_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_STOCK_COMPROMETIDO_PROD_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_STOCK_COMPROMETIDO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_TABLA_CODIGO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_TDISENO_DOCUMENTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_TOTAL_SISTEMA_FECHA2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_VALIDAR_APERTURA_CAJERO2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_VALIDAR_APERTURA_CAJERO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_VALIDAR_PERMISO_FECHA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_VALIDAR_USUARIO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_VENTA_COMENSAL_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_VENTA_MASIVA_PRODUCTOV2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_VENTA_MASIVA_PRODUCTO_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_VENTA_RENTABILIDADCE_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_VENTA_RENTABILIDADUC_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPESS_VENTA_RENTABILIDAD_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_CAJAB.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_CCOM.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_COBRANZA_CLIENTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_COMPRAS_CENTRO_COSTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_COMPRAS_CENTRO_COSTO2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_CONSULTA_INVENTARIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_CON_PLA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_COTIZACION_KIT.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_CVTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DETALLE_SALOF.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\opevw_detalle_salof2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DOCUMENTO_INVENTARIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DPSTOCK.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DPSTOCKUBI.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DPSTOCKUBI2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DPSTOCK_CCC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DPSTOCK_FV.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DPSTOCK_LOTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DPSTOCK_SERIE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DSTOCK.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DSTOCK_CCC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DSTOCK_FV.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DSTOCK_LOTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_DSTOCK_SERIE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_EGRESOS.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_GASTO_CATPRODUCTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_GUIA_DREMISION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_GUIA_DREMISIONP.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_GUIA_FECHAALMACENGUIA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_KARDEX.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_LINEA_GASTO_COMPRA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_LINEA_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_LISTADO_PRODUCTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_MOVIMIENO_VALORIZADO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_MOVIMIENTO_IMPORTACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_MOVIMIENTO_UBICACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_NS_GUIAS_REMISION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_OBTENER_CONSUMO_PRODUCTO2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_OBTENER_DOCUMENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_OBTENER_DOCUMENTO2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_OBTENER_DOCUMENTO_COMPRA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_OBTENER_KIT_DOCUMENTO_VENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_OBTENER_VENTA_MASIVA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_OBTENER_VENTA_MASIVA2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_OBTENER_VENTA_MASIVA3.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_OBTENER_VENTA_MASIVA_CONSOLIDADO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_ORDEN_COMPRA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_PAGO_BANCO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_PAGO_PROVEEDOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_PORCENTAJE_COTIZACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_PRODUCTO_MAS_VENDIDO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_PRODUCTO_MAS_VENDIDO_MONTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_RESUMEN_CIERRE_DIARIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_RESUMEN_CIERRE_DIARIO2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_SAL_INV_POR_MOV.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_SAL_INV_POR_MOV2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_SAL_INV_POR_MOV3.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_SAL_INV_POR_MOV_CC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_SOL_REQ.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_STOCK.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_STOCK2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_STOCKALL.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_STOCKA_LP.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_STOCKA_LPAG.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_STOCKRESTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_STOCK_INTERMEDIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_SUMRECETA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_VENTA_COMENSAL.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_VENTA_RENTABILIDAD.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_VENTA_RENTABILIDADCE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_VENTA_RENTABILIDADUC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPEVW_VENTA_RENTABILIDAD_VV.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_AGRUPAMIENTO_PRODUCTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ALMACENZONA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ANEXO_COTIZACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ANEXO_COTIZACIONC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ANEXO_DOCUMENTO_COMPRA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ANEXO_PEDIDO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ANEXO_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ANTICIPO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ANTICIPOP.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_APERTURA_CAJA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ARCHIVO_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ARQUEO_CAJA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ASIGNACION_ACTIVO_FIJO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_AZFILACOLUMNA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_AZFILACOLUMNAPROD.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_BLOQUEO_DESBLO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CAJA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CAJA2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CAJAB.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CALCULORRHH.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CALCULO_UNIEPP.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CARPETA_IMPORTACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CHECKINOUT.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CIERRE_DIARIO_CAJA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CIERRE_MES.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CLIENTE_PRODUCTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CLISTA_PRECIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_COFPR_PRODUCTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_COMISION_CONTRATO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_COMISION_VENTA_PERSONA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_COMPROMISO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_COMP_ELEC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CONSUMO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CONTRATO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CONTRATO_CUOTA_PARQUEO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CONTRATO_PARQUEO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CONTRATO_PLACA_PARQUEO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CONTROL_GARANTIA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CONTROL_MAQUINA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CONVENIO_LAB.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CONVENIO_PRUEBA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CORRELATIVO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_COSTEO_IMPORTACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_COSTO_PROM.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_COSTO_REAL_OF.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_COTIZACIONC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_COTIZACION_VENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CREQUERIMIENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CREQUERIMIENTO_NUMEROS.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CTL_CTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CUENTA_CORRIENTE_CLIENTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CUENTA_CORRIENTE_PROVEEDOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CUOTA_CONDPAGO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CUOTA_DOCUMENTOVENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CUOTA_PEDIDO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_CUOTA_VENDEDOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLECC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_ACTIVO_FIJO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_CAJA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_CALCULO_UNIEPP.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_CHECKINOUT.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_COMPROMISO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_CONSUMO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_COTIZACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_CPRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_DOCUMENTO_COMPRA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_DOCUMENTO_COMPRA2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_DOCUMENTO_VENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_ENTRE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_FRE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_GUIA2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_GUIA3.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_GUIA4.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_GUIAUBICACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_HABITACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_INVENTARIO_FISICO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_LETRA_CLIENTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_LETRA_PROVEEDOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_LIBBCO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_LIBBCO1.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_LIQUIDACIONM.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_NUMERO_DOCUMENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_ORDEN_COMPRA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_ORDEN_FABRICACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_ORDEN_SERVICIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_ORDEN_TRABAJO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_PAGO_CLIENTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_PAGO_PROVEEDOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_PARTIDA_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_PEDIDO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_PLANTILLA_RECETA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_PLAN_FABRICACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_PRESUPUESTO2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_PROGRAMACION_PAGO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_RECETA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_REQITEMS.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_REQUISICION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_RESERVA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_SOLICITUD_DOCUMENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_SOLICITUD_REQUERIMIENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_SOLICITUD_VJEVTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DETALLE_TABLA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DISTRIBUCION_GASTO_CC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DIST_GAST_IMPORTACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DKARDEX.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DOCNT_DOC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DOCUMENTO_COMPRA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DOCUMENTO_COMPRA2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DOCUMENTO_GUIA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DOCUMENTO_GUIA2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DOCUMENTO_VENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DOCUMENTO_VENTA_CONTRATO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_DSCTO_CANTIDAD_PRODUCTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_EMPRESA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ENTRE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ENTRE2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_EQUIPO_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ESTABLECIMIENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ESTADO_EQUIPO_FRE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ESTADO_HABITACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_FORM.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_FORMATO_LAB.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_FORMATO_LABVALOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_FRE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_GASTO_ADICIONAL.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_GG_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_HABITACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_HUESPED_RESE_CHEC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_IMP_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_IMP_PROD_WEB.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_INGRESO_IMPORTACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_INVENTARIO_FISICO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_KARDEX.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_LETRA_CLIENTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_LETRA_PROVEEDOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_LIBBCO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_LIBBCO1.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_LIMPIEZA_HABITACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_LIQUIDACIONM.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_LISTA_PRECIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_LISTA_PRECIO2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_LOTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_MAQUINA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_MESA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_MOVBCO_REQ.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_MOVIMIENTO_DINERO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_MP_DOCVEN.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_MP_PEDVEN.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_NI_GASTO_IMPORTACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_NOTAS_REQ.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_NOTA_COBRANZA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_NOTA_PROYECTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_NUMERO_DOCUMENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_OCDC_PRORRATEO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ODOCUMENTO_COMPRA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_OFPR_PRODUCTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ORDEN_COMPRA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ORDEN_FABRICACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ORDEN_FABRICACION_SERIELOTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ORDEN_SERVICIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_ORDEN_TRABAJO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_OT_PEDIDO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PAGO_CLIENTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PAGO_TRABAJADOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PARAMETRO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PARQUEO_VEHICULO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PEDIDO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PEDIDO_MESA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PEDIDO_PAGO_IHOY.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PEDIDO_PUNTAJE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PERMISO_PERSONA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PERSONA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PLANTILLA_RECETA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PLAN_FABRICACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PLAN_FACTURACION_OC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PLAN_FACT_GASTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PRESUPUESTO2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PRODUCTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PRODUCTO_IMAGEN.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PRODUCTO_SUCURSAL.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PROGRAMACION_MN.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PROGRAMACION_PAGO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PROMOCION_PRODUCTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PROSPECTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PROVEEDOR_PRODUCTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_PUNTOS_VENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_RECETA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_REFERENCIA_ADELANTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_REFERENCIA_BANCARIA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_REFERENCIA_PERSONA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_REFERENCIA_PERSONA2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_REFERENCIA_PROSPECTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_REPROGRAMACION_OC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_REQITEMS.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_REQUERIMIENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_REQUISICION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_REQUISICION_ANEXO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_RESERVA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_RESULTADO_FINAL_LAB.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_RESULTADO_PRODUCTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_SEGUIMIENTO_COTI.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_SEGUIMIENTO_IMPORTACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_SEGUIMIENTO_PEDI.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_SOLICITUD_ANTICIPO_PROVEEDOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_SOLICITUD_DINERO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_SOLICITUD_DOCUMENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_SOLICITUD_REQUERIMIENTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_SOLICITUD_VJEVTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_STOCK_LOTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_SUCURSAL.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TABLA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TARIFA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TARIFA_HABITACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TARIFA_PRECIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TARIFA_TEMPORADA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TARIFA_TIPO_HABITACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TARJETA_EQUIPO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TDOC_APERTURA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TDOC_PUNTO_VENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TEMPORADA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TEMP_COMANDA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TICKET.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TIPO_CAMBIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TITULO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_TRANSFERENCIA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_USUARIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_USUARIO_FORM.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_VALORIZACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_VALORIZACIOND.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\OPE_VEHICULO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\PLAN_DETALLE_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\PLAN_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\QUERY_DOCUMENTO_CLIENTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\QUERY_DOCUMENTO_PROVEEDOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\QUERY_KARDEX.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\QUERY_KARDEX_SERIES.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VWUTIL_ALMACEN.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VWUTIL_COMPRAS.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_ANTICIPOS_CLIENTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_ASIGNACION_ACTIVO_FIJO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_ATENCION_TICKET.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_CAJA_CHICA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_COMANDA_ANULADO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_COMISIONES_VENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_COMPROMISO_FINANCIERO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_CONSUMO_COMENSAL.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_CONSUMO_COMENSAL2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_CONTRATO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_COSTO_VALORVENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_DAOT_VENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_DETALLE_DOCUMENTO_COMPRA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_DETALLE_ENTREGA_RENDIR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_DOCUMENTO_COMPRA_PERCEPCION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_DOCUMENTO_VENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_DOCUMENTO_VENTA2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_ENTREGA_RENDIR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_GASTOS_COMPRAS.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_INVENTARIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_LETRA_CLIENTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_LETRA_CLIENTE2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_LOG.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_OBTENER_REGISTRO_VENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_OBTENER_VENTA_UTIL.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_ORDEN_PEDIDO_LETRA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_PAGO_CONSUMO_COMENSAL.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_PAGO_PROVEEDOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_PORCOTIZACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_PRODUCTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_PRODUCTO2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_PRODUCTO_NO_INVENTARIABLE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_REQ_OC_CC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_REQ_OP_COB.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_RQS.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_SALDO_KARDEX.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_SALDO_NEGATIVOS.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_SERVICIO_OTS.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_STOCK_UBICACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_TESORERIA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_TESORERIA_DET.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_TESORERIA_DET2_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_VALORIZACION_PROD.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REP_VW_VENTA_EXPORTAR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REQUISICION_ANEXO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REQ_ALMACEN.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\REQ_OC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RQ_DETALLE_CC_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RQ_DETALLE_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RQ_PRESUPUESTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHHSS_OBTENER_AFP_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHHSS_OBTENER_PERSONA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_ASIGNACION_RECURSO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_CAPACITACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_CONCEPTO_PERSONA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_CONSOLIDADO_ASISTENCIA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_CONSOLIDADO_ASISTENCIA_TAREO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_CONTRATO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_CONTROL_VACACION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_CTA_5TA_CAT.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_CTA_CTE_TRABAJADOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_DERECHO_HABIENTE.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_DETALLE_HORARIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_DETALLE_INCIDENCIA_MEMO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_DETALLE_PLANILLA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_DETALLE_PRESTAMO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_DISTRIBUCION_CENTROCOSTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_HORARIO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_INCIDENCIA_MEMO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_MARCACION_ASISTENCIA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_OBTENER_RENTA_5CTA_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_PERMISO_SANCION.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_PLANILLA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_PRESTAMO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_RECORD_VACACIONAL.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_REFERENCIA_CUENTA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_REFERENCIA_TRABAJADOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_SEMANA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_UTIL.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\RRHH_VIGENCIA_REINTEGRO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_ACTIVIDAD_PROYECTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_ACTIVIDAD_TECNICO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_CONTRATO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_CONTROL_CALIDAD_PROYECTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_DETALLE_CONTRATO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_DETALLE_SERVICIO_TECNICO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_EQUIPO_MATERIAL_PROYECTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_ITEMS_PROYECTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_PLANTILLA_CC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_PLAN_FACTURACION_CONTRATO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_PLAN_FACTURACION_PROYECTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_PROYECTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_SERVICIO_TECNICO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_SERVICIO_TECNICO_IMAGEN.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_TAREA_PROYECTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_TAREO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SERV_TRANSPORTE_PROYECTO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SI_FILTRO_INDICADOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\SI_INDICADOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\sp_helpdiagrams_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\sysdiagram.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_acceso_empresa.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_acceso_opcion.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_campo_documento.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_catalogo.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_catalogo_detalle.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_config_adic.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_config_documento.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_csrv.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_documento.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_documento_BKP.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_documento_sunat.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_documento_sunat_bkerror.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_empresa.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_grupo_usuario.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_opcion.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_pass_cliente.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_usuario.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\tb_wsrv.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\TEMP_ESF.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\TEMP_LIBMAYOR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\TEMP_NUMERO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\USModelsEF.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>USModelsEF.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\USModelsEF.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\USModelsEF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>USModelsEF.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\UTIL_FILTRO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\UTIL_MP.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\ValideOpenCash_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_ESTRUCTURA_REMUNERATIVA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_BAJA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_BAJA_V01.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_BOLETA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_BOLETA_V02.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_BOLETA_V03.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_BOLETA_V04.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_BOLETA_V04A.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_BOLETA_V04SUNAT.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_CONTINGENCIA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_FACTURA.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_FACTURA_V02.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_FACTURA_V03.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_FACTURA_V04.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_FACTURA_V04A.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_FACTURA_V04SUNAT.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_GR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_GRSUNAT.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_NC.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_NC_BO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_NC_BO_V02.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_NC_BO_V02A.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_NC_V02.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_NC_V03.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_NC_V03A.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_ND.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_ND_BO.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_ND_BO_V02.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_ND_BO_V02A.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_ND_V02.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_ND_V03.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_ND_V03A.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_PV.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_RESUMEN.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_RESUMEN2.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_RESUMEN2_V02.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_RESUMEN3.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_RESUMEN3_V02.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_FAEL_RESUMEN_V02.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\VW_NETO_PAGAR.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\WS_INGRESO_EQUIPOS_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\WS_OBTENER_EQUIPOS_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity\WS_SALIDA_EQUIPOS_Result.cs">
+      <DependentUpon>DbModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Caja\APERTURA\OPE_ARQUEO_CAJABean.cs" />
+    <Compile Include="Models\Caja\OPE_CAJABean.cs" />
+    <Compile Include="Models\Caja\OPE_DETALLE_CAJABean.cs" />
+    <Compile Include="Models\DocumentoCompra\OPE_DETALLE_DOCUMENTO_COMPRABean.cs" />
+    <Compile Include="Models\DocumentoCompra\OPE_DOCUMENTO_COMPRABean.cs" />
+    <Compile Include="Models\DocumentoVenta\OPE_DETALLE_DOCUMENTO_VENTABean.cs" />
+    <Compile Include="Models\DocumentoVenta\OPE_DOCUMENTO_VENTABean.cs" />
+    <Compile Include="Models\Empresa\EmpresaBean.cs" />
+    <Compile Include="Models\Login\OPE_USUARIOBean.cs" />
+    <Compile Include="Models\Maestros\TablasBasicas\OPE_DETALLE_TABLABean.cs" />
+    <Compile Include="Models\Maestros\TablasBasicas\OPE_DETALLE_TABLADTO.cs" />
+    <Compile Include="Models\Maestros\TablasBasicas\OPE_DETALLE_TABLADTO_OPE_DIVISA.cs" />
+    <Compile Include="Models\Maestros\TablasBasicas\OPE_TABLABean.cs" />
+    <Compile Include="Models\OperacionCambio\DIVI_OPERACIONBean.cs" />
+    <Compile Include="Models\Persona\Entidad\OPE_PERSONABean.cs" />
+    <Compile Include="Models\Persona\Entidad\OPE_PERSONASDTO.cs" />
+    <Compile Include="Models\PLE\Compras\PLECOMPRASBean.cs" />
+    <Compile Include="Models\PLE\Ventas\PLEVENTASBean.cs" />
+    <Compile Include="Models\Productos\OPE_PRODUCTOBean.cs" />
+    <Compile Include="Presentation\Configuracion\FrmMaestroEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Configuracion\FrmMaestroEmpresa.Designer.cs">
+      <DependentUpon>FrmMaestroEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Configuracion\FrmTablasBasicas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Configuracion\FrmTablasBasicas.Designer.cs">
+      <DependentUpon>FrmTablasBasicas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\FrmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\FrmBase.Designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\FrmPopUpScheme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\FrmPopUpScheme.Designer.cs">
+      <DependentUpon>FrmPopUpScheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\FrmScheme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\FrmScheme.Designer.cs">
+      <DependentUpon>FrmScheme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Maestros\FrmClienteProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Maestros\FrmClienteProveedor.Designer.cs">
+      <DependentUpon>FrmClienteProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Maestros\FrmListadoClientesProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Maestros\FrmListadoClientesProveedores.Designer.cs">
+      <DependentUpon>FrmListadoClientesProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\MenuControls\MenuColorTable.cs" />
+    <Compile Include="Presentation\MenuControls\MenuRenderer.cs" />
+    <Compile Include="Presentation\MenuControls\USButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\MenuControls\USEXDropdownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Operaciones\Caja\FrmAperturaCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Operaciones\Caja\FrmAperturaCaja.Designer.cs">
+      <DependentUpon>FrmAperturaCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Operaciones\FRMAGREGARCAMBIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Operaciones\FRMAGREGARCAMBIO.Designer.cs">
+      <DependentUpon>FRMAGREGARCAMBIO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Operaciones\FrmOpeCompraVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Operaciones\FrmOpeCompraVentas.Designer.cs">
+      <DependentUpon>FrmOpeCompraVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Operaciones\FrmOpeEnvioDivisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Operaciones\FrmOpeEnvioDivisa.Designer.cs">
+      <DependentUpon>FrmOpeEnvioDivisa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UsersControls\Configuracion\FrmConfiguracion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\UsersControls\Configuracion\FrmConfiguracion.Designer.cs">
+      <DependentUpon>FrmConfiguracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UsersControls\Configuracion\FrmHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\UsersControls\Configuracion\FrmHome.Designer.cs">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UsersControls\MessageBox\FormMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\UsersControls\MessageBox\FormMessageBox.Designer.cs">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UsersControls\MessageBox\USMessageBox.cs" />
+    <Compile Include="Presentation\UsersControls\USButton\USCircleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\UsersControls\USTextBox\USCurrencyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\UsersControls\USTextBox\USCurrencyTextBox.Designer.cs">
+      <DependentUpon>USCurrencyTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UsersControls\USTextBox\USTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\UsersControls\USTextBox\USTextBox.Designer.cs">
+      <DependentUpon>USTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\UsersControls\USToggleButton\USToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validators\Login\LoginValidator.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Configuracion\FrmMaestroEmpresa.resx">
+      <DependentUpon>FrmMaestroEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Configuracion\FrmTablasBasicas.resx">
+      <DependentUpon>FrmTablasBasicas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\FrmPopUpScheme.resx">
+      <DependentUpon>FrmPopUpScheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\FrmScheme.resx">
+      <DependentUpon>FrmScheme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Maestros\FrmClienteProveedor.resx">
+      <DependentUpon>FrmClienteProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Maestros\FrmListadoClientesProveedores.resx">
+      <DependentUpon>FrmListadoClientesProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\MenuControls\USEXDropdownMenu.resx">
+      <DependentUpon>USEXDropdownMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Operaciones\Caja\FrmAperturaCaja.resx">
+      <DependentUpon>FrmAperturaCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Operaciones\FRMAGREGARCAMBIO.resx">
+      <DependentUpon>FRMAGREGARCAMBIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Operaciones\FrmOpeCompraVentas.resx">
+      <DependentUpon>FrmOpeCompraVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Operaciones\FrmOpeEnvioDivisa.resx">
+      <DependentUpon>FrmOpeEnvioDivisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\UsersControls\Configuracion\FrmConfiguracion.resx">
+      <DependentUpon>FrmConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\UsersControls\Configuracion\FrmHome.resx">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\UsersControls\MessageBox\FormMessageBox.resx">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EntityDeploy Include="ModelEntity\DbModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="ModelEntity\USModelsEF.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>USModelsEF.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelEntity\USModelsEF.edmx.diagram">
+      <DependentUpon>USModelsEF.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="US_EXCHANGER_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Builders\" />
+    <Folder Include="CodeFirst\" />
+    <Folder Include="Models\Caja\ARQUEO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelEntity\DbModels.tt">
+      <DependentUpon>DbModels.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DbModels.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelEntity\USModelsEF.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>USModelsEF.edmx</DependentUpon>
+      <LastGenOutput>USModelsEF.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelEntity\USModelsEF.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>USModelsEF.edmx</DependentUpon>
+      <LastGenOutput>USModelsEF.cs</LastGenOutput>
+    </Content>
+    <Content Include="Recursos\Consultas\SPLogin.sql" />
+    <Content Include="Recursos\Consultas\US_SQL_CONSULTATIPOCAMBIO.sql" />
+    <Content Include="Recursos\Consultas\US_SQL_CONSULTATIPOCAMBIOPARAMETROS.sql" />
+    <Content Include="Recursos\Consumibles\EUTIL.dll" />
+    <Content Include="Recursos\Iconos\accept.png" />
+    <Content Include="Recursos\Iconos\exchange.png" />
+    <Content Include="Recursos\Iconos\Exclamation.png" />
+    <Content Include="Recursos\Iconos\info.png" />
+    <Content Include="Recursos\Iconos\onuwhite.png" />
+    <Content Include="Recursos\Iconos\question.png" />
+    <Content Include="Recursos\Iconos\remove.png" />
+    <None Include="Resources\hamburguesa %281%29.png" />
+    <Content Include="usicon.ico" />
+    <None Include="Resources\exchangewhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.15.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2019 Express LocalDB</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2d2af107102c427ea57da44a4a34422d" Name="Diagram1" ZoomLevel="26">
+        <EntityTypeShape EntityType="dbUSModel.OPE_CAJA" Width="1.5" PointX="12.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_CAJAB" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_CIERRE_DIARIO_CAJA" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_CIERRE_MES" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_CLIENTE_PRODUCTO" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_CLISTA_PRECIO" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_CORRELATIVO" Width="1.5" PointX="15.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_COTIZACION_VENTA" Width="1.5" PointX="10.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_COTIZACIONC" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_CUENTA_CORRIENTE_CLIENTE" Width="1.5" PointX="17.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_CUENTA_CORRIENTE_PROVEEDOR" Width="1.5" PointX="17.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_CUOTA_CONDPAGO" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_CUOTA_DOCUMENTOVENTA" Width="1.5" PointX="17.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_CUOTA_VENDEDOR" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_DETALLE_CAJA" Width="1.5" PointX="15" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_DETALLE_COTIZACION" Width="1.5" PointX="13" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_DETALLE_DOCUMENTO_COMPRA" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_DETALLE_DOCUMENTO_VENTA" Width="1.5" PointX="8" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_DETALLE_ENTRE" Width="1.5" PointX="19.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_DETALLE_TABLA" Width="1.5" PointX="19.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_DOCUMENTO_COMPRA" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_DOCUMENTO_COMPRA2" Width="1.5" PointX="10.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_DOCUMENTO_VENTA" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_NUMERO_DOCUMENTO" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_ODOCUMENTO_COMPRA" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_PAGO_CLIENTE" Width="1.5" PointX="2.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_PERSONA" Width="1.5" PointX="21.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_PRODUCTO" Width="1.5" PointX="0.75" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_PRODUCTO_IMAGEN" Width="1.5" PointX="12.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_PRODUCTO_SUCURSAL" Width="1.5" PointX="14.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_PROGRAMACION_MN" Width="1.5" PointX="16.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_PROGRAMACION_PAGO" Width="1.5" PointX="7.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_USUARIO" Width="1.5" PointX="23.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_CAJA2" Width="1.5" PointX="23.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_CUOTA_PEDIDO" Width="1.5" PointX="23.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbUSModel.tb_empresa" Width="1.5" PointX="16.75" PointY="24.75" IsExpanded="true" />
+        <AssociationConnector Association="dbUSModel.FK_OPE_DETALLE_CAJA_OPE_CAJA" ManuallyRouted="false" />
+        <AssociationConnector Association="dbUSModel.FK_OPE_DETALLE_COTIZACION_OPE_COTIZACION_VENTA" ManuallyRouted="false" />
+        <AssociationConnector Association="dbUSModel.FK_OPE_DETALLE_DOCUMENTO_COMPRA_OPE_DOCUMENTO_COMPRA" ManuallyRouted="false" />
+        <AssociationConnector Association="dbUSModel.FK_OPE_DETALLE_DOCUMENTO_COMPRA_OPE_PRODUCTO" ManuallyRouted="false" />
+        <AssociationConnector Association="dbUSModel.FK_OPE_DETALLE_DOCUMENTO_VENTA_OPE_DOCUMENTO_VENTA" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbUSModel.OPE_TABLA" Width="1.5" PointX="17.5" PointY="34.75" />
+        <AssociationConnector Association="dbUSModel.FK_OPE_DETALLE_TABLA_OPE_TABLA" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
