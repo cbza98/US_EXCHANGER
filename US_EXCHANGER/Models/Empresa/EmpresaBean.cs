@@ -85,7 +85,8 @@ namespace US_EXCHANGER.Models.Empresa
         public string cc_correo { get; set; }
 
         public decimal? ssl { get; set; }
-
+        public string COD_MONEDA_SYS { get; set; }
+        public string NOMBRE_MONEDA_SYS { get; set; }
 
         public int QtyDCantidad { get; set; }   
         public int QtyDPorcentaje { get; set; }

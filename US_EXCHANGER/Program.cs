@@ -18,6 +18,8 @@ namespace US_EXCHANGER
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Aplicacion.IniciarParametros();
+            Aplicacion.ObtenerEmpresa();
+            Aplicacion.ObtenerXmlConnection();
             Application.Run(new FrmLogin());
         }
     }

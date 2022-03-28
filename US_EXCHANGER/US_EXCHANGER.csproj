@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Obfuscar.2.2.33\build\obfuscar.props" Condition="Exists('..\packages\Obfuscar.2.2.33\build\obfuscar.props')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -11,11 +12,12 @@
     <AssemblyName>US_EXCHANGER</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>C:\US_EXCHANGER\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -68,12 +70,21 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>usicon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
@@ -92,6 +103,11 @@
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
+    <Reference Include="libzkfpcsharp, Version=1.0.0.1, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Users\Leonardo\Downloads\SDKZKFinger\ZKFinger\lib\x64\libzkfpcsharp.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -104,8 +120,15 @@
     <Reference Include="MetroSet UI, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroSet_UI.2.0.0\lib\net45\MetroSet UI.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="RestSharp, Version=106.12.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.12.0\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -131,6 +154,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aplicacion.cs" />
+    <Compile Include="Asistencia\BitmapFormat.cs" />
+    <Compile Include="connection\Connection.cs" />
     <Compile Include="Context\ApplicationDbContext.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -139,6 +164,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\EnumsOperacion.cs" />
+    <Compile Include="Helpers\RestCall.cs" />
     <Compile Include="Helpers\Utils.cs" />
     <Compile Include="ModelEntity\ACA_CRONOGRAMA_PAGO_ALUMNO.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -1957,13 +1983,13 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CAJA.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CAJA2.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CAJAB.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CALCULORRHH.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -1978,16 +2004,16 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CIERRE_DIARIO_CAJA.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CIERRE_MES.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CLIENTE_PRODUCTO.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CLISTA_PRECIO.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_COFPR_PRODUCTO.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2032,7 +2058,7 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CORRELATIVO.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_COSTEO_IMPORTACION.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2044,10 +2070,10 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_COTIZACIONC.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_COTIZACION_VENTA.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CREQUERIMIENTO.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2059,22 +2085,22 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CUENTA_CORRIENTE_CLIENTE.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CUENTA_CORRIENTE_PROVEEDOR.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CUOTA_CONDPAGO.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CUOTA_DOCUMENTOVENTA.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CUOTA_PEDIDO.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_CUOTA_VENDEDOR.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DETALLECC.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2083,7 +2109,7 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DETALLE_CAJA.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DETALLE_CALCULO_UNIEPP.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2098,22 +2124,22 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DETALLE_COTIZACION.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DETALLE_CPRESUPUESTO.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DETALLE_DOCUMENTO_COMPRA.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DETALLE_DOCUMENTO_COMPRA2.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DETALLE_DOCUMENTO_VENTA.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DETALLE_ENTRE.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DETALLE_FRE.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2215,7 +2241,7 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DETALLE_TABLA.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DISTRIBUCION_GASTO_CC.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2230,10 +2256,10 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DOCUMENTO_COMPRA.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DOCUMENTO_COMPRA2.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DOCUMENTO_GUIA.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2242,7 +2268,7 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DOCUMENTO_VENTA.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_DOCUMENTO_VENTA_CONTRATO.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2368,13 +2394,13 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_NUMERO_DOCUMENTO.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_OCDC_PRORRATEO.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_ODOCUMENTO_COMPRA.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_OFPR_PRODUCTO.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2398,7 +2424,7 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_PAGO_CLIENTE.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_PAGO_TRABAJADOR.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2425,7 +2451,7 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_PERSONA.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_PLANTILLA_RECETA.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2446,19 +2472,19 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_PRODUCTO.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_PRODUCTO_IMAGEN.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_PRODUCTO_SUCURSAL.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_PROGRAMACION_MN.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_PROGRAMACION_PAGO.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_PROMOCION_PRODUCTO.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2545,7 +2571,7 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_TABLA.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_TARIFA.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2590,7 +2616,7 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_USUARIO.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\OPE_USUARIO_FORM.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -2971,7 +2997,7 @@
       <DependentUpon>DbModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\tb_empresa.cs">
-      <DependentUpon>DbModels.tt</DependentUpon>
+      <DependentUpon>USModelsEF.tt</DependentUpon>
     </Compile>
     <Compile Include="ModelEntity\tb_grupo_usuario.cs">
       <DependentUpon>DbModels.tt</DependentUpon>
@@ -3153,6 +3179,11 @@
     <Compile Include="Models\Caja\APERTURA\OPE_ARQUEO_CAJABean.cs" />
     <Compile Include="Models\Caja\OPE_CAJABean.cs" />
     <Compile Include="Models\Caja\OPE_DETALLE_CAJABean.cs" />
+    <Compile Include="Models\ConsultaDocIdent\DNI\GetDniBean.cs" />
+    <Compile Include="Models\ConsultaDocIdent\DNI\GetDniDTO.cs" />
+    <Compile Include="Models\ConsultaDocIdent\ResponseError\ResponseErrorDTO.cs" />
+    <Compile Include="Models\ConsultaDocIdent\Ruc\GetRucBean.cs" />
+    <Compile Include="Models\ConsultaDocIdent\Ruc\GetRucDTO.cs" />
     <Compile Include="Models\DocumentoCompra\OPE_DETALLE_DOCUMENTO_COMPRABean.cs" />
     <Compile Include="Models\DocumentoCompra\OPE_DOCUMENTO_COMPRABean.cs" />
     <Compile Include="Models\DocumentoVenta\OPE_DETALLE_DOCUMENTO_VENTABean.cs" />
@@ -3164,11 +3195,13 @@
     <Compile Include="Models\Maestros\TablasBasicas\OPE_DETALLE_TABLADTO_OPE_DIVISA.cs" />
     <Compile Include="Models\Maestros\TablasBasicas\OPE_TABLABean.cs" />
     <Compile Include="Models\OperacionCambio\DIVI_OPERACIONBean.cs" />
+    <Compile Include="Models\Persona\Asistencia.cs" />
     <Compile Include="Models\Persona\Entidad\OPE_PERSONABean.cs" />
     <Compile Include="Models\Persona\Entidad\OPE_PERSONASDTO.cs" />
     <Compile Include="Models\PLE\Compras\PLECOMPRASBean.cs" />
     <Compile Include="Models\PLE\Ventas\PLEVENTASBean.cs" />
     <Compile Include="Models\Productos\OPE_PRODUCTOBean.cs" />
+    <Compile Include="Models\Productos\OPE_PRODUCTODTO.cs" />
     <Compile Include="Presentation\Configuracion\FrmMaestroEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3181,17 +3214,47 @@
     <Compile Include="Presentation\Configuracion\FrmTablasBasicas.Designer.cs">
       <DependentUpon>FrmTablasBasicas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\FrmAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\FrmAsistencia.Designer.cs">
+      <DependentUpon>FrmAsistencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\FrmBase.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation\FrmBase.Designer.cs">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\FrmCapturadorZK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\FrmCapturadorZK.Designer.cs">
+      <DependentUpon>FrmCapturadorZK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\FrmCapturarHuella.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\FrmCapturarHuella.Designer.cs">
+      <DependentUpon>FrmCapturarHuella.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\FrmListadoEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\FrmListadoEmpleados.Designer.cs">
+      <DependentUpon>FrmListadoEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\FrmMaestroEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\FrmMaestroEmpleado.Designer.cs">
+      <DependentUpon>FrmMaestroEmpleado.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\FrmPopUpScheme.cs">
       <SubType>Form</SubType>
@@ -3205,6 +3268,18 @@
     <Compile Include="Presentation\FrmScheme.Designer.cs">
       <DependentUpon>FrmScheme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\FrmSchemeListado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\FrmSchemeListado.Designer.cs">
+      <DependentUpon>FrmSchemeListado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\FrmTomarAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\FrmTomarAsistencia.Designer.cs">
+      <DependentUpon>FrmTomarAsistencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Maestros\FrmClienteProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3216,6 +3291,12 @@
     </Compile>
     <Compile Include="Presentation\Maestros\FrmListadoClientesProveedores.Designer.cs">
       <DependentUpon>FrmListadoClientesProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Maestros\FrmListadoItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Maestros\FrmListadoItems.Designer.cs">
+      <DependentUpon>FrmListadoItems.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\MenuControls\MenuColorTable.cs" />
     <Compile Include="Presentation\MenuControls\MenuRenderer.cs" />
@@ -3288,6 +3369,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recursos\Reportes\ReportePrueba.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportePrueba.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\DataSets\FacturasBoletas\FacturaBoletaPDF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacturaBoletaPDF.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DataSets\TicketFacturaBoletas\FacturaBoletaTicket.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacturaBoletaTicket.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Validators\Login\LoginValidator.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -3298,11 +3395,23 @@
     <EmbeddedResource Include="Presentation\Configuracion\FrmTablasBasicas.resx">
       <DependentUpon>FrmTablasBasicas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\FrmAsistencia.resx">
+      <DependentUpon>FrmAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\FrmCapturarHuella.resx">
+      <DependentUpon>FrmCapturarHuella.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\FrmListadoEmpleados.resx">
+      <DependentUpon>FrmListadoEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\FrmMaestroEmpleado.resx">
+      <DependentUpon>FrmMaestroEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\FrmPopUpScheme.resx">
       <DependentUpon>FrmPopUpScheme.cs</DependentUpon>
@@ -3310,11 +3419,20 @@
     <EmbeddedResource Include="Presentation\FrmScheme.resx">
       <DependentUpon>FrmScheme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\FrmSchemeListado.resx">
+      <DependentUpon>FrmSchemeListado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\FrmTomarAsistencia.resx">
+      <DependentUpon>FrmTomarAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Maestros\FrmClienteProveedor.resx">
       <DependentUpon>FrmClienteProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Maestros\FrmListadoClientesProveedores.resx">
       <DependentUpon>FrmListadoClientesProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Maestros\FrmListadoItems.resx">
+      <DependentUpon>FrmListadoItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\MenuControls\USEXDropdownMenu.resx">
       <DependentUpon>USEXDropdownMenu.cs</DependentUpon>
@@ -3350,6 +3468,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Recursos\Reportes\ReportePrueba.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportePrueba.cs</LastGenOutput>
+    </EmbeddedResource>
     <EntityDeploy Include="ModelEntity\DbModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DbModels.Designer.cs</LastGenOutput>
@@ -3362,6 +3484,7 @@
       <DependentUpon>USModelsEF.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -3371,6 +3494,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Reportes\DataSets\FacturasBoletas\FacturaBoletaPDF.xsc">
+      <DependentUpon>FacturaBoletaPDF.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSets\FacturasBoletas\FacturaBoletaPDF.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FacturaBoletaPDF.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DataSets\FacturasBoletas\FacturaBoletaPDF.xss">
+      <DependentUpon>FacturaBoletaPDF.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSets\TicketFacturaBoletas\FacturaBoletaTicket.xsc">
+      <DependentUpon>FacturaBoletaTicket.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSets\TicketFacturaBoletas\FacturaBoletaTicket.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FacturaBoletaTicket.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DataSets\TicketFacturaBoletas\FacturaBoletaTicket.xss">
+      <DependentUpon>FacturaBoletaTicket.xsd</DependentUpon>
+    </None>
     <None Include="US_EXCHANGER_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -3382,6 +3527,9 @@
     <Folder Include="Models\Caja\ARQUEO\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="connection.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="ModelEntity\DbModels.tt">
       <DependentUpon>DbModels.edmx</DependentUpon>
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -3397,8 +3545,11 @@
       <DependentUpon>USModelsEF.edmx</DependentUpon>
       <LastGenOutput>USModelsEF.cs</LastGenOutput>
     </Content>
+    <Content Include="obfuscar.xml" />
+    <Content Include="Recursos\Consultas\GetRRHHEmpleado.sql" />
     <Content Include="Recursos\Consultas\SPLogin.sql" />
     <Content Include="Recursos\Consultas\US_SQL_CONSULTATIPOCAMBIO.sql" />
+    <Content Include="Recursos\Consultas\US_SQL_CONSULTATIPOCAMBIOPARAMETROSSD.sql" />
     <Content Include="Recursos\Consultas\US_SQL_CONSULTATIPOCAMBIOPARAMETROS.sql" />
     <Content Include="Recursos\Consumibles\EUTIL.dll" />
     <Content Include="Recursos\Iconos\accept.png" />
@@ -3414,6 +3565,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -3432,6 +3584,32 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="ZKFPEngXControl">
+      <Guid>{D95CB779-00CB-4B49-97B9-9F0B61CAB3C1}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Users\Leonardo\Downloads\SDKZKFinger\ZKFinger\Demo\Demo2.csproj">
+      <Project>{52584845-7921-48b8-b3d0-f88912dc4f74}</Project>
+      <Name>Demo2</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -3439,6 +3617,10 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Obfuscar.2.2.33\build\obfuscar.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Obfuscar.2.2.33\build\obfuscar.props'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release $(Obfuscar) ..\..\obfuscar.xml</PostBuildEvent>
+  </PropertyGroup>
 </Project>

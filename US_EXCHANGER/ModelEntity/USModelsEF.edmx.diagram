@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2d2af107102c427ea57da44a4a34422d" Name="Diagram1" ZoomLevel="26">
+      <Diagram DiagramId="2d2af107102c427ea57da44a4a34422d" Name="Diagram1" ZoomLevel="22">
         <EntityTypeShape EntityType="dbUSModel.OPE_CAJA" Width="1.5" PointX="12.75" PointY="14" IsExpanded="true" />
         <EntityTypeShape EntityType="dbUSModel.OPE_CAJAB" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbUSModel.OPE_CIERRE_DIARIO_CAJA" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />

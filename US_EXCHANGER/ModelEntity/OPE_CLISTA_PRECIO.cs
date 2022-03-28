@@ -14,12 +14,6 @@ namespace US_EXCHANGER.ModelEntity
     
     public partial class OPE_CLISTA_PRECIO
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public OPE_CLISTA_PRECIO()
-        {
-            this.OPE_LISTA_PRECIO2 = new HashSet<OPE_LISTA_PRECIO2>();
-        }
-    
         public string CODIGO { get; set; }
         public string MONEDA { get; set; }
         public string NOMBRE { get; set; }
@@ -37,8 +31,5 @@ namespace US_EXCHANGER.ModelEntity
         public string TIPO_CLIENTE { get; set; }
         public string TIPO { get; set; }
         public string SWT_WEB { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OPE_LISTA_PRECIO2> OPE_LISTA_PRECIO2 { get; set; }
     }
 }

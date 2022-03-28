@@ -1,9 +1,14 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using US_EXCHANGER.connection;
 using US_EXCHANGER.Models.Empresa;
 using US_EXCHANGER.Models.Login;
 
@@ -11,8 +16,10 @@ namespace US_EXCHANGER
 {
     public class Aplicacion
     {
-
-        EmpresaBean oCompañia = null;
+        #region Atributos
+        public static Connection mConn;
+        #endregion
+        public static EmpresaBean oCompañia = null;
         OPE_USUARIOBean oUsuario = null;
         public static CultureInfo oCulture = null;
         public static void IniciarParametros()
@@ -27,7 +34,6 @@ namespace US_EXCHANGER
             oCulture.NumberFormat.NumberDecimalDigits = 4;
             System.Threading.Thread.CurrentThread.CurrentCulture = oCulture;
         }
-
         #region CREACIÓN DE TABLA DE VERSIÓN, VALIDACIÓN Y REGISTRO DE VERSIÓN ACTUAL
         private bool registrarTablaVersion()
         {
@@ -103,7 +109,6 @@ namespace US_EXCHANGER
             return res;
         }
         #endregion
-
         public void Obtenerdatosempresa()
         {
 
@@ -112,6 +117,41 @@ namespace US_EXCHANGER
         {
 
         }
+        private static List<EmpresaBean> ExtraerEmpresa()
+        {
 
+            List<EmpresaBean> listado1 = null;
+            string cnn = ConfigurationManager.ConnectionStrings["Conn"].ConnectionString;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+
+            {
+                if (db.State == ConnectionState.Closed)
+                    db.Open();
+                var procedure = "OBTENER_EMPRESA_CAMBIO";
+                DynamicParameters cmd = new DynamicParameters();
+
+                listado1 = db.Query<EmpresaBean>(procedure, cmd, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                db.Dispose();
+            }
+            return new List<EmpresaBean>(listado1);
+
+        }
+        public static void ObtenerEmpresa()
+        {
+            List<EmpresaBean> _List = new List<EmpresaBean>();
+            _List= ExtraerEmpresa().ToList();
+            foreach (var item in _List)
+            {
+                oCompañia = new EmpresaBean();
+                oCompañia.COD_MONEDA_SYS = item.COD_MONEDA_SYS.ToString();
+                oCompañia.NOMBRE_MONEDA_SYS = item.NOMBRE_MONEDA_SYS.ToString();
+            }
+            oCompañia.codi_empr = "0001";
+
+        }
+        public static void ObtenerXmlConnection()
+        {
+            mConn = Connection.Instance;
+        }
     }
 }

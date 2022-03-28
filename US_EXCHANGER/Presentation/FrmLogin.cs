@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using US_EXCHANGER.Models.Empresa;
 using US_EXCHANGER.Models.Login;
 using US_EXCHANGER.Models.Persona.Entidad;
 using US_EXCHANGER.Presentation.UsersControls.MessageBox;
@@ -20,16 +21,40 @@ namespace US_EXCHANGER.Presentation
 {
     public partial class FrmLogin : Form
     {
-
+        public bool UserClosing { get; set; }
+        public EmpresaBean _Compañia { get; set; }
 
         public FrmLogin()
         {
             InitializeComponent();
+            //this.FormClosing += FrmLogin_FormClosing;
+        }
+
+        private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                case CloseReason.ApplicationExitCall: break;
+                case CloseReason.FormOwnerClosing: break;
+                case CloseReason.MdiFormClosing: break;
+                case CloseReason.None: break;
+                case CloseReason.TaskManagerClosing: break;
+                case CloseReason.UserClosing:
+                    if (UserClosing)
+                    {
+                        MessageBox.Show("DeseaCerrar el APp");
+                    }
+                    else { }
+                    break;
+                case CloseReason.WindowsShutDown: break;
+                default: break;
+            }
+            UserClosing = false;
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -77,7 +102,7 @@ namespace US_EXCHANGER.Presentation
                 OPE_USUARIOBean loginBean = new OPE_USUARIOBean()
                 {
                     CODIGO = txtUsuario.Text,
-                 CONTRASENA = HRA.UTIL.dbUtility.EncryptText(txtpass.Text)
+                    CONTRASENA = HRA.UTIL.dbUtility.EncryptText(txtpass.Text)
                 };
                 LoginValidator validator = new LoginValidator();
                 ValidationResult validationResult = validator.Validate(loginBean);
@@ -110,12 +135,12 @@ MessageBoxIcon.Error);
                             if (dr.Read())
                             {
 
-                                USMessageBox.Show("Ingreso Exitoso......",
+                                USMessageBox.Show($"Ingreso Exitoso......",
                                                 "Notificación    ",
                                                 MessageBoxButtons.OK,
                                                 MessageBoxIcon.Information);
 
-
+                                Aplicacion.oCompañia.usua_crea = txtUsuario.Text;
                                 FrmBase _frmbase = new FrmBase();
                                 _frmbase.Show();
                                 cmd.Dispose();
@@ -131,10 +156,6 @@ MessageBoxIcon.Error);
                             }
                         }
                     }
-
-
-
-
                 }
 
             }
@@ -149,8 +170,8 @@ MessageBoxIcon.Error);
         private void usButton3_Click(object sender, EventArgs e)
         {
 
-         //   var cifrado = EUTIL.HRA.UTIL.dbUtility.DecryptText(txtpass.Text);
-         //   txtUsuario.Text = cifrado.ToString();
+            //   var cifrado = EUTIL.HRA.UTIL.dbUtility.DecryptText(txtpass.Text);
+            //   txtUsuario.Text = cifrado.ToString();
             //    using (IDbConnection db = new SqlConnection(ConfigurationManager.AppSettings["Conn"]))
             //    {
             //        if (db.State == ConnectionState.Closed) db.Open();
@@ -169,9 +190,10 @@ MessageBoxIcon.Error);
 
         private void usButton3_Click_1(object sender, EventArgs e)
         {
-           // string cifrado = EUTIL.HRA.UTIL.dbUtility.EncryptText(txtpass.Text);
-          //  txtUsuario.Text = cifrado.ToString();
+            // string cifrado = EUTIL.HRA.UTIL.dbUtility.EncryptText(txtpass.Text);
+            //  txtUsuario.Text = cifrado.ToString();
         }
+
     }
 }
 

@@ -436,6 +436,7 @@ namespace US_EXCHANGER.Presentation
             this.Name = "FrmBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBase";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmBase_FormClosing);
             this.Load += new System.EventHandler(this.FrmBase_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

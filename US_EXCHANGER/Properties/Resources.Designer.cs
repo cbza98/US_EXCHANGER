@@ -111,6 +111,16 @@ namespace US_EXCHANGER.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a select P.ID_PERSONA as &quot;CODIGO&quot;, P.RUC, RR.NOMBRE, P.PERSONA_FINGER as &quot;Huella&quot;, (select &quot;Nombre&quot; From OPE_DETALLE_TABLA where &quot;Codigo&quot; =&apos;TIPO_IDEN&apos; and &quot;Numero&quot; = P.TIPO_DOCUMENTO) as &quot;Documento&quot; from OPE_PERSONA P
+        ///INNER JOIN RRHH_PLANILLA RR ON RR.ID_PERSONA = P.ID_PERSONA.
+        /// </summary>
+        internal static string GetRRHHEmpleado {
+            get {
+                return ResourceManager.GetString("GetRRHHEmpleado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap hamburguesa__1_ {
@@ -161,10 +171,12 @@ namespace US_EXCHANGER.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT D.&quot;NOMBRE&quot; &quot;Moneda&quot;, D.&quot;REFERENCIA1&quot; &quot;Simbolo&quot; , FORMAT(fecha, &apos;dd/MM/yyyy&apos;) &quot;Fecha&quot;, TP.&quot;PRECIO_COMPRA&quot; &quot;Compra&quot;, TP.&quot;PRECIO_VENTA&quot; &quot;Venta&quot;  FROM &quot;OPE_TIPOCAMBIO_DIVISA&quot; TP
+        ///   Busca una cadena traducida similar a SELECT D.&quot;NOMBRE&quot; &quot;Moneda&quot;, D.&quot;REFERENCIA1&quot; &quot;Simbolo&quot; , CREATEDATE &quot;Fecha&quot;, TP.&quot;PRECIO_COMPRA&quot; &quot;Compra&quot;, TP.&quot;PRECIO_VENTA&quot; &quot;Venta&quot;, D.&quot;Numero&quot;  FROM DIVI_TIPO_CAMBIO TP
         ///
         ///LEFT JOIN &quot;OPE_DETALLE_TABLA&quot; D ON TP.&quot;COD_MONEDA_CAMBIO&quot; = D.&quot;NUMERO&quot; WHERE D.CODIGO=&apos;MONEDA&apos; 
-        ///.
+        ///
+        ///
+        ///AND CREATEDATE = (SELECT FORMAT (getdate(), &apos;yyyy-MM-dd&apos;) ).
         /// </summary>
         internal static string US_SQL_CONSULTATIPOCAMBIO {
             get {
@@ -173,19 +185,34 @@ namespace US_EXCHANGER.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT D.&quot;NOMBRE&quot; &quot;Moneda&quot;, D.&quot;REFERENCIA1&quot; &quot;Simbolo&quot; , FORMAT(fecha, &apos;dd/MM/yyyy&apos;) &quot;Fecha&quot;, TP.&quot;PRECIO_COMPRA&quot; &quot;Compra&quot;, TP.&quot;PRECIO_VENTA&quot; &quot;Venta&quot;  FROM &quot;OPE_TIPOCAMBIO_DIVISA&quot; TP
+        ///   Busca una cadena traducida similar a 
+        ///SELECT D.&quot;NOMBRE&quot; &quot;Moneda&quot;, D.&quot;REFERENCIA1&quot; &quot;Simbolo&quot; , FORMAT(CREATEDATE, &apos;dd/MM/yyyy&apos;) &quot;Fecha&quot;, TP.&quot;PRECIO_COMPRA&quot; &quot;Compra&quot;, TP.&quot;PRECIO_VENTA&quot; &quot;Venta&quot;  FROM DIVI_TIPO_CAMBIO TP
         ///
         ///LEFT JOIN &quot;OPE_DETALLE_TABLA&quot; D ON TP.&quot;COD_MONEDA_CAMBIO&quot; = D.&quot;NUMERO&quot; 
         ///WHERE 
         ///D.CODIGO=&apos;MONEDA&apos; 
         ///AND D.&quot;NUMERO&quot; = &apos;[US_COD_MONEDA]&apos;
         ///
-        ///AND TP.&quot;fecha&quot; BETWEEN &apos;[US_FECHA_DESDE]&apos; AND &apos;[US_FECHA_DESDE]&apos;
-        ///.
+        ///AND TP.&quot;fecha&quot; BETWEEN &apos;[US_FECHA_DESDE]&apos; AND &apos;[US_FECHA_HASTA]&apos;.
         /// </summary>
         internal static string US_SQL_CONSULTATIPOCAMBIOPARAMETROS {
             get {
                 return ResourceManager.GetString("US_SQL_CONSULTATIPOCAMBIOPARAMETROS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 
+        ///SELECT D.&quot;NOMBRE&quot; &quot;Moneda&quot;, D.&quot;REFERENCIA1&quot; &quot;Simbolo&quot; , FORMAT(CREATEDATE, &apos;dd/MM/yyyy&apos;) &quot;Fecha&quot;, TP.&quot;PRECIO_COMPRA&quot; &quot;Compra&quot;, TP.&quot;PRECIO_VENTA&quot; &quot;Venta&quot;  FROM DIVI_TIPO_CAMBIO TP
+        ///
+        ///LEFT JOIN &quot;OPE_DETALLE_TABLA&quot; D ON TP.&quot;COD_MONEDA_CAMBIO&quot; = D.&quot;NUMERO&quot; 
+        ///WHERE 
+        ///D.CODIGO=&apos;MONEDA&apos; AND TP.&quot;fecha&quot; BETWEEN &apos;[US_FECHA_DESDE]&apos; AND &apos;[US_FECHA_HASTA]&apos;
+        ///.
+        /// </summary>
+        internal static string US_SQL_CONSULTATIPOCAMBIOPARAMETROSSD {
+            get {
+                return ResourceManager.GetString("US_SQL_CONSULTATIPOCAMBIOPARAMETROSSD", resourceCulture);
             }
         }
     }

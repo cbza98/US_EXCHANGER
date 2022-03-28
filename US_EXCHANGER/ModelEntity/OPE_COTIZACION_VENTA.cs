@@ -17,7 +17,6 @@ namespace US_EXCHANGER.ModelEntity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public OPE_COTIZACION_VENTA()
         {
-            this.OPE_ANEXO_COTIZACION = new HashSet<OPE_ANEXO_COTIZACION>();
             this.OPE_DETALLE_COTIZACION = new HashSet<OPE_DETALLE_COTIZACION>();
         }
     
@@ -78,8 +77,6 @@ namespace US_EXCHANGER.ModelEntity
         public Nullable<decimal> ID_PROYECTO { get; set; }
         public string SWT_VISADO { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OPE_ANEXO_COTIZACION> OPE_ANEXO_COTIZACION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OPE_DETALLE_COTIZACION> OPE_DETALLE_COTIZACION { get; set; }
     }

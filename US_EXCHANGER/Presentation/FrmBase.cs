@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using US_EXCHANGER.Presentation.UsersControls.MessageBox;
 
 namespace US_EXCHANGER.Presentation
 {
@@ -51,23 +52,55 @@ namespace US_EXCHANGER.Presentation
 
         private void tablasBásicasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Configuracion.FrmTablasBasicas().Show();    
+            new Configuracion.FrmTablasBasicas().Show();
         }
 
         private void empresaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Configuracion.FrmMaestroEmpresa().Show();   
+            new Configuracion.FrmMaestroEmpresa().Show();
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-    
+
             new Maestros.FrmListadoClientesProveedores("0002").Show();
         }
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new Maestros.FrmListadoClientesProveedores("0001").Show();
+        }
+
+        private void FrmBase_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                case CloseReason.ApplicationExitCall: break;
+                case CloseReason.FormOwnerClosing: break;
+                case CloseReason.MdiFormClosing: break;
+                case CloseReason.None: break;
+                case CloseReason.TaskManagerClosing: break;
+                case CloseReason.UserClosing:
+                    {
+                        var Result = USMessageBox.Show("Desea salir del sistema?......",
+                                            "Advertencia Unosoft    ",
+                                            MessageBoxButtons.YesNoCancel,
+                                            MessageBoxIcon.Exclamation);
+
+                        if (Result == DialogResult.Yes)
+                        {
+                            Application.Exit();
+                        }
+                        else
+                        {
+                            e.Cancel = true;
+                        }
+
+                    }
+                    break;
+                case CloseReason.WindowsShutDown: break;
+                default: break;
+            }
         }
     }
 }
