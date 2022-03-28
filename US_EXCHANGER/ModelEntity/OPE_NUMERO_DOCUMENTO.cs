@@ -14,12 +14,6 @@ namespace US_EXCHANGER.ModelEntity
     
     public partial class OPE_NUMERO_DOCUMENTO
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public OPE_NUMERO_DOCUMENTO()
-        {
-            this.OPE_DETALLE_NUMERO_DOCUMENTO = new HashSet<OPE_DETALLE_NUMERO_DOCUMENTO>();
-        }
-    
         public string CODIGO_EMPRESA { get; set; }
         public string CODIGO_SUCURSAL { get; set; }
         public string TIPO_DOCUMENTO { get; set; }
@@ -30,8 +24,5 @@ namespace US_EXCHANGER.ModelEntity
         public System.DateTime FECHA_CREACION { get; set; }
         public string USUARIO_MODIFICACION { get; set; }
         public Nullable<System.DateTime> FECHA_MODIFICACION { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OPE_DETALLE_NUMERO_DOCUMENTO> OPE_DETALLE_NUMERO_DOCUMENTO { get; set; }
     }
 }

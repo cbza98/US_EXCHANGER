@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.txtTipoCambio = new MetroFramework.Controls.MetroTextBox();
@@ -52,13 +53,12 @@
             this.label11 = new System.Windows.Forms.Label();
             this.cmbCondPago = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.grdDirecciones = new System.Windows.Forms.DataGridView();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ref1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ref2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ref3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtListado = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtDireEje = new MetroFramework.Controls.MetroTextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.label19 = new System.Windows.Forms.Label();
+            this.chckMpersona = new US_EXCHANGER.Presentation.UsersControls.USToggleButton.USToggleButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -67,6 +67,7 @@
             this.txtNombreEje = new MetroFramework.Controls.MetroTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtDirecBene = new MetroFramework.Controls.MetroTextBox();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -80,15 +81,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtDireEje = new MetroFramework.Controls.MetroTextBox();
-            this.txtDirecBene = new MetroFramework.Controls.MetroTextBox();
             this.usButton2 = new US_EXCHANGER.Presentation.MenuControls.USButton();
             this.usButton1 = new US_EXCHANGER.Presentation.MenuControls.USButton();
-            this.chckMpersona = new US_EXCHANGER.Presentation.UsersControls.USToggleButton.USToggleButton();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdDirecciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -146,6 +143,7 @@
             this.txtTipoCambio.WaterMark = "Ingrese tipo de cambio";
             this.txtTipoCambio.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtTipoCambio.WaterMarkFont = new System.Drawing.Font("Segoe UI", 7F);
+            this.txtTipoCambio.TextChanged += new System.EventHandler(this.txtTipoCambio_TextChanged);
             this.txtTipoCambio.Validated += new System.EventHandler(this.txtTipoCambio_Validated);
             // 
             // txtCantidadCompra
@@ -225,6 +223,7 @@
             this.CmbMonedaCompra.Name = "CmbMonedaCompra";
             this.CmbMonedaCompra.Size = new System.Drawing.Size(193, 23);
             this.CmbMonedaCompra.TabIndex = 42;
+            this.CmbMonedaCompra.SelectedValueChanged += new System.EventHandler(this.CmbMonedaCompra_SelectedValueChanged);
             // 
             // cmbMonedaCambio
             // 
@@ -233,6 +232,7 @@
             this.cmbMonedaCambio.Name = "cmbMonedaCambio";
             this.cmbMonedaCambio.Size = new System.Drawing.Size(193, 23);
             this.cmbMonedaCambio.TabIndex = 43;
+            this.cmbMonedaCambio.SelectedValueChanged += new System.EventHandler(this.cmbMonedaCambio_SelectedValueChanged);
             // 
             // label9
             // 
@@ -453,52 +453,39 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.grdDirecciones);
+            this.groupBox3.Controls.Add(this.dtListado);
+            this.groupBox3.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(475, 44);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(359, 333);
+            this.groupBox3.Size = new System.Drawing.Size(459, 333);
             this.groupBox3.TabIndex = 48;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Monitor Divisas";
             // 
-            // grdDirecciones
+            // dtListado
             // 
-            this.grdDirecciones.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.grdDirecciones.AllowUserToAddRows = false;
-            this.grdDirecciones.AllowUserToDeleteRows = false;
-            this.grdDirecciones.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.grdDirecciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grdDirecciones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.grdDirecciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdDirecciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Tipo,
-            this.Ref1,
-            this.Ref2,
-            this.Ref3});
-            this.grdDirecciones.Location = new System.Drawing.Point(6, 30);
-            this.grdDirecciones.Name = "grdDirecciones";
-            this.grdDirecciones.Size = new System.Drawing.Size(347, 287);
-            this.grdDirecciones.TabIndex = 25;
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo de Cambio";
-            this.Tipo.Name = "Tipo";
-            // 
-            // Ref1
-            // 
-            this.Ref1.HeaderText = "Precio divisa compra";
-            this.Ref1.Name = "Ref1";
-            // 
-            // Ref2
-            // 
-            this.Ref2.HeaderText = "Precio divisa venta";
-            this.Ref2.Name = "Ref2";
-            // 
-            // Ref3
-            // 
-            this.Ref3.HeaderText = "Fecha y hora de transacción";
-            this.Ref3.Name = "Ref3";
+            this.dtListado.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.dtListado.AllowUserToAddRows = false;
+            this.dtListado.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Lavender;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Montserrat Medium", 8.249999F);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(74)))), ((int)(((byte)(114)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtListado.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtListado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtListado.EnableHeadersVisualStyles = false;
+            this.dtListado.Location = new System.Drawing.Point(5, 20);
+            this.dtListado.MultiSelect = false;
+            this.dtListado.Name = "dtListado";
+            this.dtListado.RowHeadersVisible = false;
+            this.dtListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtListado.Size = new System.Drawing.Size(448, 296);
+            this.dtListado.TabIndex = 62;
             // 
             // groupBox2
             // 
@@ -521,6 +508,38 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ejecutante";
             // 
+            // txtDireEje
+            // 
+            // 
+            // 
+            // 
+            this.txtDireEje.CustomButton.Image = null;
+            this.txtDireEje.CustomButton.Location = new System.Drawing.Point(398, 1);
+            this.txtDireEje.CustomButton.Name = "";
+            this.txtDireEje.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtDireEje.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtDireEje.CustomButton.TabIndex = 1;
+            this.txtDireEje.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtDireEje.CustomButton.UseSelectable = true;
+            this.txtDireEje.CustomButton.Visible = false;
+            this.txtDireEje.Lines = new string[0];
+            this.txtDireEje.Location = new System.Drawing.Point(9, 158);
+            this.txtDireEje.MaxLength = 32767;
+            this.txtDireEje.Name = "txtDireEje";
+            this.txtDireEje.PasswordChar = '\0';
+            this.txtDireEje.PromptText = "Ingrese dirección";
+            this.txtDireEje.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtDireEje.SelectedText = "";
+            this.txtDireEje.SelectionLength = 0;
+            this.txtDireEje.SelectionStart = 0;
+            this.txtDireEje.ShortcutsEnabled = true;
+            this.txtDireEje.Size = new System.Drawing.Size(420, 23);
+            this.txtDireEje.TabIndex = 54;
+            this.txtDireEje.UseSelectable = true;
+            this.txtDireEje.WaterMark = "Ingrese dirección";
+            this.txtDireEje.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtDireEje.WaterMarkFont = new System.Drawing.Font("Segoe UI", 7F);
+            // 
             // iconButton1
             // 
             this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(74)))), ((int)(((byte)(114)))));
@@ -537,6 +556,31 @@
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(350, 26);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(90, 15);
+            this.label19.TabIndex = 52;
+            this.label19.Text = "Misma persona";
+            // 
+            // chckMpersona
+            // 
+            this.chckMpersona.AutoSize = true;
+            this.chckMpersona.Location = new System.Drawing.Point(352, 48);
+            this.chckMpersona.Margin = new System.Windows.Forms.Padding(2);
+            this.chckMpersona.MinimumSize = new System.Drawing.Size(27, 16);
+            this.chckMpersona.Name = "chckMpersona";
+            this.chckMpersona.OffBackColor = System.Drawing.Color.Gray;
+            this.chckMpersona.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.chckMpersona.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(74)))), ((int)(((byte)(114)))));
+            this.chckMpersona.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.chckMpersona.Size = new System.Drawing.Size(27, 16);
+            this.chckMpersona.TabIndex = 51;
+            this.chckMpersona.UseVisualStyleBackColor = true;
+            this.chckMpersona.CheckedChanged += new System.EventHandler(this.chckMpersona_CheckedChanged_1);
             // 
             // label5
             // 
@@ -660,10 +704,42 @@
             this.groupBox4.Font = new System.Drawing.Font("Montserrat", 8.249999F);
             this.groupBox4.Location = new System.Drawing.Point(475, 383);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(359, 197);
+            this.groupBox4.Size = new System.Drawing.Size(459, 197);
             this.groupBox4.TabIndex = 49;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Beneficiario";
+            // 
+            // txtDirecBene
+            // 
+            // 
+            // 
+            // 
+            this.txtDirecBene.CustomButton.Image = null;
+            this.txtDirecBene.CustomButton.Location = new System.Drawing.Point(425, 1);
+            this.txtDirecBene.CustomButton.Name = "";
+            this.txtDirecBene.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtDirecBene.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtDirecBene.CustomButton.TabIndex = 1;
+            this.txtDirecBene.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtDirecBene.CustomButton.UseSelectable = true;
+            this.txtDirecBene.CustomButton.Visible = false;
+            this.txtDirecBene.Lines = new string[0];
+            this.txtDirecBene.Location = new System.Drawing.Point(6, 158);
+            this.txtDirecBene.MaxLength = 32767;
+            this.txtDirecBene.Name = "txtDirecBene";
+            this.txtDirecBene.PasswordChar = '\0';
+            this.txtDirecBene.PromptText = "Ingrese la dirección";
+            this.txtDirecBene.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtDirecBene.SelectedText = "";
+            this.txtDirecBene.SelectionLength = 0;
+            this.txtDirecBene.SelectionStart = 0;
+            this.txtDirecBene.ShortcutsEnabled = true;
+            this.txtDirecBene.Size = new System.Drawing.Size(447, 23);
+            this.txtDirecBene.TabIndex = 55;
+            this.txtDirecBene.UseSelectable = true;
+            this.txtDirecBene.WaterMark = "Ingrese la dirección";
+            this.txtDirecBene.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtDirecBene.WaterMarkFont = new System.Drawing.Font("Segoe UI", 7F);
             // 
             // iconButton2
             // 
@@ -674,7 +750,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.White;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 15;
-            this.iconButton2.Location = new System.Drawing.Point(182, 48);
+            this.iconButton2.Location = new System.Drawing.Point(256, 47);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(28, 20);
             this.iconButton2.TabIndex = 54;
@@ -694,7 +770,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(213, 26);
+            this.label14.Location = new System.Drawing.Point(287, 25);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(127, 15);
             this.label14.TabIndex = 46;
@@ -712,9 +788,9 @@
             // cmbTipodocubenefi
             // 
             this.cmbTipodocubenefi.FormattingEnabled = true;
-            this.cmbTipodocubenefi.Location = new System.Drawing.Point(216, 48);
+            this.cmbTipodocubenefi.Location = new System.Drawing.Point(290, 47);
             this.cmbTipodocubenefi.Name = "cmbTipodocubenefi";
-            this.cmbTipodocubenefi.Size = new System.Drawing.Size(138, 23);
+            this.cmbTipodocubenefi.Size = new System.Drawing.Size(163, 23);
             this.cmbTipodocubenefi.TabIndex = 47;
             // 
             // txtRucBenefi
@@ -723,7 +799,7 @@
             // 
             // 
             this.txtRucBenefi.CustomButton.Image = null;
-            this.txtRucBenefi.CustomButton.Location = new System.Drawing.Point(145, 1);
+            this.txtRucBenefi.CustomButton.Location = new System.Drawing.Point(210, 1);
             this.txtRucBenefi.CustomButton.Name = "";
             this.txtRucBenefi.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtRucBenefi.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -742,7 +818,7 @@
             this.txtRucBenefi.SelectionLength = 0;
             this.txtRucBenefi.SelectionStart = 0;
             this.txtRucBenefi.ShortcutsEnabled = true;
-            this.txtRucBenefi.Size = new System.Drawing.Size(167, 23);
+            this.txtRucBenefi.Size = new System.Drawing.Size(232, 23);
             this.txtRucBenefi.TabIndex = 30;
             this.txtRucBenefi.UseSelectable = true;
             this.txtRucBenefi.WaterMark = "Ingrese nombre comercial";
@@ -755,7 +831,7 @@
             // 
             // 
             this.txtNombreBenefi.CustomButton.Image = null;
-            this.txtNombreBenefi.CustomButton.Location = new System.Drawing.Point(321, 1);
+            this.txtNombreBenefi.CustomButton.Location = new System.Drawing.Point(423, 1);
             this.txtNombreBenefi.CustomButton.Name = "";
             this.txtNombreBenefi.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtNombreBenefi.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -774,7 +850,7 @@
             this.txtNombreBenefi.SelectionLength = 0;
             this.txtNombreBenefi.SelectionStart = 0;
             this.txtNombreBenefi.ShortcutsEnabled = true;
-            this.txtNombreBenefi.Size = new System.Drawing.Size(343, 23);
+            this.txtNombreBenefi.Size = new System.Drawing.Size(445, 23);
             this.txtNombreBenefi.TabIndex = 32;
             this.txtNombreBenefi.UseSelectable = true;
             this.txtNombreBenefi.WaterMark = "Ingrese nombre | razón social";
@@ -847,79 +923,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(206, 560);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(350, 26);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(90, 15);
-            this.label19.TabIndex = 52;
-            this.label19.Text = "Misma persona";
-            // 
-            // txtDireEje
-            // 
-            // 
-            // 
-            // 
-            this.txtDireEje.CustomButton.Image = null;
-            this.txtDireEje.CustomButton.Location = new System.Drawing.Point(398, 1);
-            this.txtDireEje.CustomButton.Name = "";
-            this.txtDireEje.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtDireEje.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtDireEje.CustomButton.TabIndex = 1;
-            this.txtDireEje.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtDireEje.CustomButton.UseSelectable = true;
-            this.txtDireEje.CustomButton.Visible = false;
-            this.txtDireEje.Lines = new string[0];
-            this.txtDireEje.Location = new System.Drawing.Point(9, 158);
-            this.txtDireEje.MaxLength = 32767;
-            this.txtDireEje.Name = "txtDireEje";
-            this.txtDireEje.PasswordChar = '\0';
-            this.txtDireEje.PromptText = "Ingrese dirección";
-            this.txtDireEje.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtDireEje.SelectedText = "";
-            this.txtDireEje.SelectionLength = 0;
-            this.txtDireEje.SelectionStart = 0;
-            this.txtDireEje.ShortcutsEnabled = true;
-            this.txtDireEje.Size = new System.Drawing.Size(420, 23);
-            this.txtDireEje.TabIndex = 54;
-            this.txtDireEje.UseSelectable = true;
-            this.txtDireEje.WaterMark = "Ingrese dirección";
-            this.txtDireEje.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtDireEje.WaterMarkFont = new System.Drawing.Font("Segoe UI", 7F);
-            // 
-            // txtDirecBene
-            // 
-            // 
-            // 
-            // 
-            this.txtDirecBene.CustomButton.Image = null;
-            this.txtDirecBene.CustomButton.Location = new System.Drawing.Point(323, 1);
-            this.txtDirecBene.CustomButton.Name = "";
-            this.txtDirecBene.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtDirecBene.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtDirecBene.CustomButton.TabIndex = 1;
-            this.txtDirecBene.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtDirecBene.CustomButton.UseSelectable = true;
-            this.txtDirecBene.CustomButton.Visible = false;
-            this.txtDirecBene.Lines = new string[0];
-            this.txtDirecBene.Location = new System.Drawing.Point(6, 158);
-            this.txtDirecBene.MaxLength = 32767;
-            this.txtDirecBene.Name = "txtDirecBene";
-            this.txtDirecBene.PasswordChar = '\0';
-            this.txtDirecBene.PromptText = "Ingrese la dirección";
-            this.txtDirecBene.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtDirecBene.SelectedText = "";
-            this.txtDirecBene.SelectionLength = 0;
-            this.txtDirecBene.SelectionStart = 0;
-            this.txtDirecBene.ShortcutsEnabled = true;
-            this.txtDirecBene.Size = new System.Drawing.Size(345, 23);
-            this.txtDirecBene.TabIndex = 55;
-            this.txtDirecBene.UseSelectable = true;
-            this.txtDirecBene.WaterMark = "Ingrese la dirección";
-            this.txtDirecBene.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtDirecBene.WaterMarkFont = new System.Drawing.Font("Segoe UI", 7F);
-            // 
             // usButton2
             // 
             this.usButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(74)))), ((int)(((byte)(114)))));
@@ -930,7 +933,7 @@
             this.usButton2.FlatAppearance.BorderSize = 0;
             this.usButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.usButton2.ForeColor = System.Drawing.Color.White;
-            this.usButton2.Location = new System.Drawing.Point(738, 588);
+            this.usButton2.Location = new System.Drawing.Point(854, 586);
             this.usButton2.Name = "usButton2";
             this.usButton2.Size = new System.Drawing.Size(80, 22);
             this.usButton2.TabIndex = 52;
@@ -949,7 +952,7 @@
             this.usButton1.FlatAppearance.BorderSize = 0;
             this.usButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.usButton1.ForeColor = System.Drawing.Color.White;
-            this.usButton1.Location = new System.Drawing.Point(652, 588);
+            this.usButton1.Location = new System.Drawing.Point(768, 586);
             this.usButton1.Name = "usButton1";
             this.usButton1.Size = new System.Drawing.Size(80, 22);
             this.usButton1.TabIndex = 51;
@@ -958,26 +961,11 @@
             this.usButton1.UseVisualStyleBackColor = false;
             this.usButton1.Click += new System.EventHandler(this.usButton1_Click_1);
             // 
-            // chckMpersona
-            // 
-            this.chckMpersona.AutoSize = true;
-            this.chckMpersona.Location = new System.Drawing.Point(352, 48);
-            this.chckMpersona.Margin = new System.Windows.Forms.Padding(2);
-            this.chckMpersona.MinimumSize = new System.Drawing.Size(27, 16);
-            this.chckMpersona.Name = "chckMpersona";
-            this.chckMpersona.OffBackColor = System.Drawing.Color.Gray;
-            this.chckMpersona.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.chckMpersona.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(74)))), ((int)(((byte)(114)))));
-            this.chckMpersona.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.chckMpersona.Size = new System.Drawing.Size(27, 16);
-            this.chckMpersona.TabIndex = 51;
-            this.chckMpersona.UseVisualStyleBackColor = true;
-            // 
             // FrmOpeCompraVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 622);
+            this.ClientSize = new System.Drawing.Size(946, 622);
             this.Controls.Add(this.usButton2);
             this.Controls.Add(this.usButton1);
             this.Controls.Add(this.panel1);
@@ -994,7 +982,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdDirecciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1025,11 +1013,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cmbCondPago;
-        private System.Windows.Forms.DataGridView grdDirecciones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ref1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ref2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ref3;
         private System.Windows.Forms.ComboBox cmbComprobante;
         private MetroFramework.Controls.MetroTextBox txtTotal;
         private System.Windows.Forms.Label lblDescripOpe;
@@ -1066,5 +1049,6 @@
         private UsersControls.USToggleButton.USToggleButton chckMpersona;
         private MetroFramework.Controls.MetroTextBox txtDireEje;
         private MetroFramework.Controls.MetroTextBox txtDirecBene;
+        private System.Windows.Forms.DataGridView dtListado;
     }
 }

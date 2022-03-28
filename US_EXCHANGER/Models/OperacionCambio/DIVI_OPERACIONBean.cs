@@ -131,7 +131,6 @@ namespace US_EXCHANGER.Models.OperacionCambio
                     _cod_operacion = value;
                 }
             }
-
             public string cod_empresa
             {
                 get
@@ -143,7 +142,6 @@ namespace US_EXCHANGER.Models.OperacionCambio
                     _cod_empresa = value;
                 }
             }
-
             public string name_empresa
             {
                 get
@@ -825,21 +823,21 @@ namespace US_EXCHANGER.Models.OperacionCambio
                 }
             }
         }
-        public class _TIPO_CAMBIO
+        public class _TIPO_CAMBIODTO
         {
             private int _cod_tipo;
 
-            private int _cod_moneda;
+            private string _cod_moneda;
 
-            private int _cod_moneda_default;
+            private string _cod_moneda_default;
 
             private DateTime _fecha;
 
-            private double _p_compra;
+            private decimal _p_compra;
 
-            private double _p_venta;
+            private decimal _p_venta;
 
-            private int _cod_usuario;
+            private string _cod_usuario;
 
             private string _name_usuario;
 
@@ -847,7 +845,7 @@ namespace US_EXCHANGER.Models.OperacionCambio
 
             private string _name_sucursal;
 
-            private int _cod_empresa;
+            private string _cod_empresa;
 
             private string _name_empresa;
 
@@ -865,7 +863,7 @@ namespace US_EXCHANGER.Models.OperacionCambio
                 }
             }
 
-            public int cod_moneda
+            public string cod_moneda
             {
                 get
                 {
@@ -877,7 +875,7 @@ namespace US_EXCHANGER.Models.OperacionCambio
                 }
             }
 
-            public int cod_moneda_default
+            public string cod_moneda_default
             {
                 get
                 {
@@ -901,7 +899,7 @@ namespace US_EXCHANGER.Models.OperacionCambio
                 }
             }
 
-            public double p_compra
+            public decimal p_compra
             {
                 get
                 {
@@ -913,7 +911,7 @@ namespace US_EXCHANGER.Models.OperacionCambio
                 }
             }
 
-            public double p_venta
+            public decimal p_venta
             {
                 get
                 {
@@ -925,7 +923,7 @@ namespace US_EXCHANGER.Models.OperacionCambio
                 }
             }
 
-            public int cod_usuario
+            public string cod_usuario
             {
                 get
                 {
@@ -973,7 +971,7 @@ namespace US_EXCHANGER.Models.OperacionCambio
                 }
             }
 
-            public int cod_empresa
+            public string cod_empresa
             {
                 get
                 {
@@ -997,6 +995,82 @@ namespace US_EXCHANGER.Models.OperacionCambio
                 }
             }
 
+        }
+        public class _TIPO_CAMBIO_DTO
+        {
+            private string _Moneda;
+            private string _Simbolo;
+            private DateTime _Fecha;
+            private decimal _Compra;
+            private decimal _Venta;
+
+            private string cod_moneda;
+            public string Cod_moneda
+            {
+                get
+                {
+                    return cod_moneda;
+                }
+                set
+                {
+                    cod_moneda = value;
+                }
+            }
+            public string Moneda
+            {
+                get
+                {
+                    return _Moneda;
+                }
+                set
+                {
+                    _Moneda = value;
+                }
+            }
+            public string Simbolo
+            {
+                get
+                {
+                    return _Simbolo;
+                }
+                set
+                {
+                    _Simbolo = value;
+                }
+            }
+            public DateTime Fecha
+            {
+                get
+                {
+                    return _Fecha;
+                }
+                set
+                {
+                    _Fecha = value;
+                }
+            }
+            public decimal Compra
+            {
+                get
+                {
+                    return _Compra;
+                }
+                set
+                {
+                    _Compra = value;
+                }
+            }
+            public decimal Venta
+            {
+                get
+                {
+                    return _Venta;
+                }
+                set
+                {
+                    _Venta = value;
+                }
+            }
         }
     }
 }

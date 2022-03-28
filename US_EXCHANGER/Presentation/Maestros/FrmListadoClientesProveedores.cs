@@ -19,6 +19,9 @@ namespace US_EXCHANGER.Presentation.Maestros
 
         string _Persona = null;
         public bool Hijo = false;
+        List<OPE_PERSONASDTO> _Listpersonas = new List<OPE_PERSONASDTO>();
+        List<OPE_PERSONASDTO> _Listpersonass = new List<OPE_PERSONASDTO>();
+        DataTable dt;
         Helpers.Operacion _Operativa = 0;
         public string Docu = null;
         public static string Nombre = null;
@@ -72,7 +75,8 @@ namespace US_EXCHANGER.Presentation.Maestros
         }
         public void CargarCabecera()
         {
-            DataTable dt = Helpers.Utils.ToDataTable<OPE_PERSONASDTO>(CargarListClientes().ToList());
+            _Listpersonas = CargarListClientes().ToList();
+            dt = Helpers.Utils.ToDataTable<OPE_PERSONASDTO>(_Listpersonas);
 
             dtListado.DataSource = dt;
             dtListado.AutoResizeColumns();
@@ -84,18 +88,18 @@ namespace US_EXCHANGER.Presentation.Maestros
         private void dtListado_DoubleClick(object sender, EventArgs e)
         {
 
-            if (dtListado.SelectedCells.Count > 0)
-            {
-                int selectedrowindex = dtListado.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dtListado.Rows[selectedrowindex];
-                Docu = Convert.ToString(selectedRow.Cells["Documento"].Value);
-                Nombre = Convert.ToString(selectedRow.Cells["Nombre"].Value);
-                _oPE_PERSONASDTO = new OPE_PERSONASDTO();
-                _oPE_PERSONASDTO.Nombre = Nombre;
-                _oPE_PERSONASDTO.Documento = Docu;
+            //if (dtListado.SelectedCells.Count > 0)
+            //{
+            //    int selectedrowindex = dtListado.SelectedCells[0].RowIndex;
+            //    DataGridViewRow selectedRow = dtListado.Rows[selectedrowindex];
+            //    Docu = Convert.ToString(selectedRow.Cells["Documento"].Value);
+            //    Nombre = Convert.ToString(selectedRow.Cells["Nombre"].Value);
+            //    _oPE_PERSONASDTO = new OPE_PERSONASDTO();
+            //    _oPE_PERSONASDTO.Nombre = Nombre;
+            //    _oPE_PERSONASDTO.Documento = Docu;
 
-                //   CodDocu = Convert.ToString(selectedRow.Cells["enter column name"].Value);
-            }
+            //    //   CodDocu = Convert.ToString(selectedRow.Cells["enter column name"].Value);
+            //}
         }
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
@@ -104,6 +108,17 @@ namespace US_EXCHANGER.Presentation.Maestros
         private void dtListado_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
+        
+        }
+        private void metroTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            _Listpersonass = _Listpersonas.Where(p => p.Nombre.ToLower().Contains(metroTextBox1.Text)|| p.Documento.ToLower().Contains(metroTextBox1.Text)).ToList();
+           dt = Helpers.Utils.ToDataTable<OPE_PERSONASDTO>(_Listpersonass);
+            dtListado.DataSource = dt;
+            dtListado.AutoResizeColumns();
+        }
+        private void dtListado_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (dtListado.SelectedCells.Count > 0)
             {
                 int selectedrowindex = dtListado.SelectedCells[0].RowIndex;
@@ -113,14 +128,17 @@ namespace US_EXCHANGER.Presentation.Maestros
                 {
                     case true:
                         btnSiguiente.PerformClick();
+                        this.Dispose();
                         break;
                     default:
                         break;
                 }
-
-                this.Dispose();
-                //   CodDocu = Convert.ToString(selectedRow.Cells["enter column name"].Value);
             }
+        }
+
+        private void usButton2_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

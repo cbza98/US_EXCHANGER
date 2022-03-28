@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Connection>
+
+  <UNOSOFT>
+    <UrlConsultaDocIden>https://ruc.com.pe/api/v1/consultas</UrlConsultaDocIden>
+    <TokenGetDocIdent>e3dcfa31-5b63-41c5-82db-156e1847256b-e39dbd97-2b55-4bfe-9268-cd8161cd283d</TokenGetDocIdent>
+  </UNOSOFT>
+
+</Connection>

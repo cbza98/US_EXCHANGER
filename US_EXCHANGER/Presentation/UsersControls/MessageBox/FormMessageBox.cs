@@ -128,7 +128,7 @@ namespace US_EXCHANGER.Presentation.UsersControls.MessageBox
                     //Cancel Button
                     button2.Visible = true;
                     button2.Location = new Point(xCenter + (button2.Width / 2) + 5, yCenter);
-                    button2.Text = "Cancel";
+                    button2.Text = "Cancelar";
                     button2.DialogResult = DialogResult.Cancel;//Set DialogResult
                     button2.BackColor = Color.DimGray;
 
@@ -142,13 +142,13 @@ namespace US_EXCHANGER.Presentation.UsersControls.MessageBox
                     //Retry Button
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - (button1.Width / 2) - 5, yCenter);
-                    button1.Text = "Retry";
+                    button1.Text = "Reintentar";
                     button1.DialogResult = DialogResult.Retry;//Set DialogResult
 
                     //Cancel Button
                     button2.Visible = true;
                     button2.Location = new Point(xCenter + (button2.Width / 2) + 5, yCenter);
-                    button2.Text = "Cancel";
+                    button2.Text = "Cancelar";
                     button2.DialogResult = DialogResult.Cancel;//Set DialogResult
                     button2.BackColor = Color.DimGray;
 
@@ -162,7 +162,7 @@ namespace US_EXCHANGER.Presentation.UsersControls.MessageBox
                     //Yes Button
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - (button1.Width / 2) - 5, yCenter);
-                    button1.Text = "Yes";
+                    button1.Text = "Sí";
                     button1.DialogResult = DialogResult.Yes;//Set DialogResult
 
                     //No Button
@@ -181,7 +181,7 @@ namespace US_EXCHANGER.Presentation.UsersControls.MessageBox
                     //Yes Button
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - button1.Width - 5, yCenter);
-                    button1.Text = "Yes";
+                    button1.Text = "Sí";
                     button1.DialogResult = DialogResult.Yes;//Set DialogResult
 
                     //No Button
@@ -194,7 +194,7 @@ namespace US_EXCHANGER.Presentation.UsersControls.MessageBox
                     //Cancel Button
                     button3.Visible = true;
                     button3.Location = new Point(xCenter + button2.Width + 5, yCenter);
-                    button3.Text = "Cancel";
+                    button3.Text = "Cancelar";
                     button3.DialogResult = DialogResult.Cancel;//Set DialogResult
                     button3.BackColor = Color.DimGray;
 
@@ -206,20 +206,20 @@ namespace US_EXCHANGER.Presentation.UsersControls.MessageBox
                     //Abort Button
                     button1.Visible = true;
                     button1.Location = new Point(xCenter - button1.Width - 5, yCenter);
-                    button1.Text = "Abort";
+                    button1.Text = "Abortar";
                     button1.DialogResult = DialogResult.Abort;//Set DialogResult
                     button1.BackColor = Color.Goldenrod;
 
                     //Retry Button
                     button2.Visible = true;
                     button2.Location = new Point(xCenter, yCenter);
-                    button2.Text = "Retry";
+                    button2.Text = "Reintentar";
                     button2.DialogResult = DialogResult.Retry;//Set DialogResult                    
 
                     //Ignore Button
                     button3.Visible = true;
                     button3.Location = new Point(xCenter + button2.Width + 5, yCenter);
-                    button3.Text = "Ignore";
+                    button3.Text = "Ignorar";
                     button3.DialogResult = DialogResult.Ignore;//Set DialogResult
                     button3.BackColor = Color.IndianRed;
 
