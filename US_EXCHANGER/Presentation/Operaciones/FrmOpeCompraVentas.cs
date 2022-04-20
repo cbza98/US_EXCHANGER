@@ -48,7 +48,7 @@ namespace US_EXCHANGER.Presentation.Operaciones
                     db.Open();
                 var procedure = "GetTipoOpeDivisas";
                 DynamicParameters cmd = new DynamicParameters();
-                cmd.Add("@CODIGO", "CDG_TIOP");
+                //cmd.Add("@CODIGO", "CDG_TIOP");
                 listado1 = db.Query<OPE_DETALLE_TABLADTO_OPE_DIVISA>(procedure, cmd, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 db.Dispose();
             }
@@ -109,6 +109,23 @@ namespace US_EXCHANGER.Presentation.Operaciones
             return new List<OPE_DETALLE_TABLADTO>(listado1);
 
         }
+        public List<OPE_DETALLE_TABLADTO> LoadTipoClienteCambio()
+        {
+            List<OPE_DETALLE_TABLADTO> listado1 = null;
+            string cnn = ConfigurationManager.ConnectionStrings["Conn"].ConnectionString;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+
+            {
+                if (db.State == ConnectionState.Closed)
+                    db.Open();
+                var procedure = "GetTipoCompradorCambioDivisas";
+                DynamicParameters cmd = new DynamicParameters();
+                //  cmd.Add("@CODIGO", "MONEDA");
+                listado1 = db.Query<OPE_DETALLE_TABLADTO>(procedure, cmd, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                db.Dispose();
+            }
+            return new List<OPE_DETALLE_TABLADTO>(listado1);
+        }
         public List<OPE_DETALLE_TABLADTO> LoadDivisasnotDefault()
         {
             List<OPE_DETALLE_TABLADTO> listado1 = null;
@@ -120,7 +137,7 @@ namespace US_EXCHANGER.Presentation.Operaciones
                     db.Open();
                 var procedure = "GetMonedasCambio";
                 DynamicParameters cmd = new DynamicParameters();
-                cmd.Add("@CODIGO", "MONEDA");
+              //  cmd.Add("@CODIGO", "MONEDA");
                 listado1 = db.Query<OPE_DETALLE_TABLADTO>(procedure, cmd, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 db.Dispose();
             }
@@ -194,6 +211,12 @@ namespace US_EXCHANGER.Presentation.Operaciones
             cmbTipodocubenefi.DataSource = LoadDocuIdentidad();
             cmbTipodocubenefi.DisplayMember = "NOMBRE";
             cmbTipodocubenefi.ValueMember = "NUMERO";
+
+
+
+            cmbtipocliente.DataSource = LoadTipoClienteCambio();
+            cmbtipocliente.DisplayMember = "NOMBRE";
+            cmbtipocliente.ValueMember = "NUMERO";
 
 
         }
@@ -330,7 +353,7 @@ namespace US_EXCHANGER.Presentation.Operaciones
                 objOperacion.importe_entregado = HRA.UTIL.dbUtility.NullToZero(txtimporterecibido.Text);
                 objOperacion.vuelto = HRA.UTIL.dbUtility.NullToZero(txtvueltoaentregar.Text);
 
-                RegistrarCompraVenta(objOperacion);
+                Datos.Insertar_Datos.RegistrarCompraVenta(objOperacion);
             }
             catch (Exception ex)
             {
@@ -358,60 +381,60 @@ namespace US_EXCHANGER.Presentation.Operaciones
             return new List<OPE_PERSONASDTO2>(listado1);
 
         }
-        private void RegistrarCompraVenta(_OPERACION objDev)
-        {
-            using (IDbConnection cnn = (IDbConnection)new SqlConnection(ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
-            {
-                cnn.Open();
-                using (SqlTransaction sqlTransaction = (SqlTransaction)cnn.BeginTransaction())
-                {
-                    try
-                    {
-                        DynamicParameters dynamicParameters1 = new DynamicParameters();
-                        dynamicParameters1.Add("@COD_COMPAÑIA", (object)objDev.cod_empresa);
-                        dynamicParameters1.Add("@COD_USER", (object)objDev.cod_usuario);
-                        dynamicParameters1.Add("@COD_MONEDA", (object)objDev.cod_moneda);
-                        dynamicParameters1.Add("@ESTADO", (object)objDev.estado);
-                        dynamicParameters1.Add("@TIPO", (object)objDev.tipo);
-                        dynamicParameters1.Add("@CREATEDATE", (object)objDev.fecha);
-                        dynamicParameters1.Add("@MONTO", (object)objDev.monto);
-                        dynamicParameters1.Add("@COD_TIPO_CAMBIO", (object)objDev.cod_moneda_cambio);
-                        dynamicParameters1.Add("@MONTO_TIPO_CAMBIO", (object)objDev.monto_tipo_cambio);
-                        dynamicParameters1.Add("@COD_EJECUTANTE", (object)objDev.cod_ejecutante);
-                        dynamicParameters1.Add("@COD_BENEFICIARIO", (object)objDev.cod_beneficiario);
-                        dynamicParameters1.Add("@COD_FORMA_PAGO", (object)objDev.cod_forma_pago);
-                        dynamicParameters1.Add("@COD_DOCUMENTO", (object)objDev.cod_documento_operacion);
-                        dynamicParameters1.Add("@FECHA_OPERACION", (object)objDev.fecha_operacion);
-                        dynamicParameters1.Add("@IMPORTE_ENTREGADO", (object)objDev.importe_entregado);
-                        dynamicParameters1.Add("@IMPORTE_VUELTO", (object)objDev.vuelto);
-                        dynamicParameters1.Add("@declaracion_jurada", (object)objDev.flag_declaracion_jurada);
-                        dynamicParameters1.Add("@COD_MONEDA_CAMBIO", (object)objDev.cod_moneda_cambio);
-                        dynamicParameters1.Add("@NOMBRE_EJECUTANTE", (object)objDev.nombre_ejecutante);
-                        dynamicParameters1.Add("@NOMBRE_BENEFICIARIO", (object)objDev.nombre_beneficiario);
-                        dynamicParameters1.Add("@TIPODOCU_EJECUTANTE", (object)objDev.cod_documento_ejecutante);
-                        dynamicParameters1.Add("@TIPODOCU_BENEFICIARIO", (object)objDev.cod_documento_ejecutante);
+        //private void RegistrarCompraVenta(_OPERACION objDev)
+        //{
+        //    using (IDbConnection cnn = (IDbConnection)new SqlConnection(ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+        //    {
+        //        cnn.Open();
+        //        using (SqlTransaction sqlTransaction = (SqlTransaction)cnn.BeginTransaction())
+        //        {
+        //            try
+        //            {
+        //                DynamicParameters dynamicParameters1 = new DynamicParameters();
+        //                dynamicParameters1.Add("@COD_COMPAÑIA", (object)objDev.cod_empresa);
+        //                dynamicParameters1.Add("@COD_USER", (object)objDev.cod_usuario);
+        //                dynamicParameters1.Add("@COD_MONEDA", (object)objDev.cod_moneda);
+        //                dynamicParameters1.Add("@ESTADO", (object)objDev.estado);
+        //                dynamicParameters1.Add("@TIPO", (object)objDev.tipo);
+        //                dynamicParameters1.Add("@CREATEDATE", (object)objDev.fecha);
+        //                dynamicParameters1.Add("@MONTO", (object)objDev.monto);
+        //                dynamicParameters1.Add("@COD_TIPO_CAMBIO", (object)objDev.cod_moneda_cambio);
+        //                dynamicParameters1.Add("@MONTO_TIPO_CAMBIO", (object)objDev.monto_tipo_cambio);
+        //                dynamicParameters1.Add("@COD_EJECUTANTE", (object)objDev.cod_ejecutante);
+        //                dynamicParameters1.Add("@COD_BENEFICIARIO", (object)objDev.cod_beneficiario);
+        //                dynamicParameters1.Add("@COD_FORMA_PAGO", (object)objDev.cod_forma_pago);
+        //                dynamicParameters1.Add("@COD_DOCUMENTO", (object)objDev.cod_documento_operacion);
+        //                dynamicParameters1.Add("@FECHA_OPERACION", (object)objDev.fecha_operacion);
+        //                dynamicParameters1.Add("@IMPORTE_ENTREGADO", (object)objDev.importe_entregado);
+        //                dynamicParameters1.Add("@IMPORTE_VUELTO", (object)objDev.vuelto);
+        //                dynamicParameters1.Add("@declaracion_jurada", (object)objDev.flag_declaracion_jurada);
+        //                dynamicParameters1.Add("@COD_MONEDA_CAMBIO", (object)objDev.cod_moneda_cambio);
+        //                dynamicParameters1.Add("@NOMBRE_EJECUTANTE", (object)objDev.nombre_ejecutante);
+        //                dynamicParameters1.Add("@NOMBRE_BENEFICIARIO", (object)objDev.nombre_beneficiario);
+        //                dynamicParameters1.Add("@TIPODOCU_EJECUTANTE", (object)objDev.cod_documento_ejecutante);
+        //                dynamicParameters1.Add("@TIPODOCU_BENEFICIARIO", (object)objDev.cod_documento_ejecutante);
 
-                        int num = cnn.ExecuteScalar<int>("DIVI_INSERTOPERACION", (object)dynamicParameters1, (IDbTransaction)sqlTransaction, commandType: new CommandType?(CommandType.StoredProcedure));
-                        sqlTransaction.Commit();
+        //                int num = cnn.ExecuteScalar<int>("DIVI_INSERTOPERACION", (object)dynamicParameters1, (IDbTransaction)sqlTransaction, commandType: new CommandType?(CommandType.StoredProcedure));
+        //                sqlTransaction.Commit();
 
-                        USMessageBox.Show($"Registro Exitoso...... Nro de Operacion:{num}",
-                                               "Notificación    ",
-                                               MessageBoxButtons.OK,
-                                               MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        sqlTransaction.Rollback();
+        //                USMessageBox.Show($"Registro Exitoso...... Nro de Operacion:{num}",
+        //                                       "Notificación    ",
+        //                                       MessageBoxButtons.OK,
+        //                                       MessageBoxIcon.Information);
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                sqlTransaction.Rollback();
 
-                        USMessageBox.Show($"Ha Ocurrido un Error: {ex.Message}",
-                                             "Notificación Error    ",
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Error);
-                        throw;
-                    }
-                }
-            }
-        }
+        //                USMessageBox.Show($"Ha Ocurrido un Error: {ex.Message}",
+        //                                     "Notificación Error    ",
+        //                                     MessageBoxButtons.OK,
+        //                                     MessageBoxIcon.Error);
+        //                throw;
+        //            }
+        //        }
+        //    }
+        //}
         private void usButton1_Click(object sender, EventArgs e)
         {
             RegistarOperacion();
@@ -666,6 +689,71 @@ namespace US_EXCHANGER.Presentation.Operaciones
         private void txtTipoCambio_TextChanged(object sender, EventArgs e)
         {
             CalcularTaxRate();
+        }
+
+        private void CmbMonedaCompra_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblvueltoaentregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtimporterecibido_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblimporterecibido_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDescripOpe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTipoCambio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCantidadCompra_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbMonedaCambio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtvueltoaentregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

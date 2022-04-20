@@ -102,5 +102,11 @@ namespace US_EXCHANGER.Presentation
                 default: break;
             }
         }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Maestros.FrmListadoItems _ListItem = new Maestros.FrmListadoItems();
+            _ListItem.Show();
+        }
     }
 }

@@ -82,9 +82,6 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
@@ -102,11 +99,6 @@
     </Reference>
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="libzkfpcsharp, Version=1.0.0.1, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Users\Leonardo\Downloads\SDKZKFinger\ZKFinger\lib\x64\libzkfpcsharp.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
@@ -157,6 +149,10 @@
     <Compile Include="Asistencia\BitmapFormat.cs" />
     <Compile Include="connection\Connection.cs" />
     <Compile Include="Context\ApplicationDbContext.cs" />
+    <Compile Include="Datos\Editar_Datos.cs" />
+    <Compile Include="Datos\Eliminar_Datos.cs" />
+    <Compile Include="Datos\Insertar_Datos.cs" />
+    <Compile Include="Datos\Listar_Datos.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3256,6 +3252,12 @@
     <Compile Include="Presentation\FrmMaestroEmpleado.Designer.cs">
       <DependentUpon>FrmMaestroEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\FrmMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\FrmMonitor.Designer.cs">
+      <DependentUpon>FrmMonitor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\FrmPopUpScheme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -3413,6 +3415,9 @@
     <EmbeddedResource Include="Presentation\FrmMaestroEmpleado.resx">
       <DependentUpon>FrmMaestroEmpleado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\FrmMonitor.resx">
+      <DependentUpon>FrmMonitor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\FrmPopUpScheme.resx">
       <DependentUpon>FrmPopUpScheme.cs</DependentUpon>
     </EmbeddedResource>
@@ -3516,7 +3521,6 @@
     <None Include="Reportes\DataSets\TicketFacturaBoletas\FacturaBoletaTicket.xss">
       <DependentUpon>FacturaBoletaTicket.xsd</DependentUpon>
     </None>
-    <None Include="US_EXCHANGER_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -3547,6 +3551,7 @@
     </Content>
     <Content Include="obfuscar.xml" />
     <Content Include="Recursos\Consultas\GetRRHHEmpleado.sql" />
+    <Content Include="Recursos\Consultas\OBTENER_EMPRESA_CAMBIO.SQL" />
     <Content Include="Recursos\Consultas\SPLogin.sql" />
     <Content Include="Recursos\Consultas\US_SQL_CONSULTATIPOCAMBIO.sql" />
     <Content Include="Recursos\Consultas\US_SQL_CONSULTATIPOCAMBIOPARAMETROSSD.sql" />
@@ -3603,12 +3608,6 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Users\Leonardo\Downloads\SDKZKFinger\ZKFinger\Demo\Demo2.csproj">
-      <Project>{52584845-7921-48b8-b3d0-f88912dc4f74}</Project>
-      <Name>Demo2</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

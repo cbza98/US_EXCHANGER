@@ -849,6 +849,7 @@ namespace US_EXCHANGER.Models.OperacionCambio
 
             private string _name_empresa;
 
+            private string _tipo_cambio_operativa;
             private string _data;
 
             public int cod_tipo
@@ -992,6 +993,17 @@ namespace US_EXCHANGER.Models.OperacionCambio
                 set
                 {
                     _name_empresa = value;
+                }
+            }
+            public string tipo_cambio_operativa
+            {
+                get
+                {
+                    return _tipo_cambio_operativa;
+                }
+                set
+                {
+                    _tipo_cambio_operativa = value;
                 }
             }
 
