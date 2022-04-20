@@ -32,9 +32,14 @@ namespace US_EXCHANGER.Presentation.Operaciones
 
 
 
-            CmbMonedaConsulta.DataSource = LoadDivisasnotDefault();
+            CmbMonedaConsulta.DataSource = LoadDivisas();
             CmbMonedaConsulta.DisplayMember = "NOMBRE";
             CmbMonedaConsulta.ValueMember = "NUMERO";
+
+            //Combo Tipo Comprador
+            cmbTipoOpe.DataSource = LoadTipoComprador();
+            cmbTipoOpe.DisplayMember = "NOMBRE";
+            cmbTipoOpe.ValueMember = "NUMERO";
         }
         public List<OPE_DETALLE_TABLADTO> LoadDivisasnotDefault()
         {
@@ -47,7 +52,43 @@ namespace US_EXCHANGER.Presentation.Operaciones
                     db.Open();
                 var procedure = "GetMonedasCambio";
                 DynamicParameters cmd = new DynamicParameters();
-                cmd.Add("@CODIGO", "MONEDA");
+              //  cmd.Add("@CODIGO", "MONEDA");
+                listado1 = db.Query<OPE_DETALLE_TABLADTO>(procedure, cmd, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                db.Dispose();
+            }
+            return new List<OPE_DETALLE_TABLADTO>(listado1);
+
+        }
+        public List<OPE_DETALLE_TABLADTO> LoadDivisas()
+        {
+            List<OPE_DETALLE_TABLADTO> listado1 = null;
+            string cnn = ConfigurationManager.ConnectionStrings["Conn"].ConnectionString;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+
+            {
+                if (db.State == ConnectionState.Closed)
+                    db.Open();
+                var procedure = "GetallMonedasCambio";
+                DynamicParameters cmd = new DynamicParameters();
+                //  cmd.Add("@CODIGO", "MONEDA");
+                listado1 = db.Query<OPE_DETALLE_TABLADTO>(procedure, cmd, commandType: System.Data.CommandType.StoredProcedure).ToList();
+                db.Dispose();
+            }
+            return new List<OPE_DETALLE_TABLADTO>(listado1);
+
+        }
+        public List<OPE_DETALLE_TABLADTO> LoadTipoComprador()
+        {
+            List<OPE_DETALLE_TABLADTO> listado1 = null;
+            string cnn = ConfigurationManager.ConnectionStrings["Conn"].ConnectionString;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+
+            {
+                if (db.State == ConnectionState.Closed)
+                    db.Open();
+                var procedure = "GetTipoCompradorCambioDivisas";
+                DynamicParameters cmd = new DynamicParameters();
+                //  cmd.Add("@CODIGO", "MONEDA");
                 listado1 = db.Query<OPE_DETALLE_TABLADTO>(procedure, cmd, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 db.Dispose();
             }
@@ -198,6 +239,7 @@ namespace US_EXCHANGER.Presentation.Operaciones
                         objTipoCambio.cod_usuario = Aplicacion.oCompañia.usua_crea;
                         objTipoCambio.cod_moneda_default = Aplicacion.oCompañia.COD_MONEDA_SYS;
                         objTipoCambio.cod_empresa = "0001";
+                        objTipoCambio.tipo_cambio_operativa = HRA.UTIL.dbUtility.NullToString(cmbTipoOpe.SelectedValue.ToString()); ;
                         GuardarTipoCambio(objTipoCambio);
 
                     }
@@ -219,43 +261,9 @@ namespace US_EXCHANGER.Presentation.Operaciones
 
             if (Result == DialogResult.Yes)
             {
-                using (IDbConnection cnn = (IDbConnection)new SqlConnection(ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+              if (Datos.Insertar_Datos.INSERTAR_TIPOCAMBIO_OPE(objDev))
                 {
-                    cnn.Open();
-                    using (SqlTransaction sqlTransaction = (SqlTransaction)cnn.BeginTransaction())
-                    {
-                        try
-                        {
-                            DynamicParameters dynamicParameters1 = new DynamicParameters();
-                            dynamicParameters1.Add("@COD_MONEDA_CAMBIO", (object)objDev.cod_moneda);
-                            dynamicParameters1.Add("@COD_MONEDA_SYS", (object)objDev.cod_moneda_default);
-                            dynamicParameters1.Add("@CREATEDATE", (object)objDev.fecha);
-                            dynamicParameters1.Add("@PRECIO_COMPRA", (object)objDev.p_compra);
-                            dynamicParameters1.Add("@PRECIO_VENTA", (object)objDev.p_venta);
-                            dynamicParameters1.Add("@COD_USER", (object)objDev.cod_usuario);
-                            dynamicParameters1.Add("@COD_COMPAÑIA", (object)objDev.cod_empresa);
-
-                            int num = cnn.ExecuteScalar<int>("INSERT_TIPO_CAMBIO_DIVISA", (object)dynamicParameters1, (IDbTransaction)sqlTransaction, commandType: new CommandType?(CommandType.StoredProcedure));
-                            sqlTransaction.Commit();
-
-                            USMessageBox.Show($"Registro Exitoso......",
-                                                   "Notificación    ",
-                                                   MessageBoxButtons.OK,
-                                                   MessageBoxIcon.Information);
-                            CargarGridCambios();
-                        }
-                        catch (Exception ex)
-                        {
-                            sqlTransaction.Rollback();
-
-                            USMessageBox.Show($"Ha Ocurrido un Error: {ex.Message}",
-                                                 "Notificación Error    ",
-                                                 MessageBoxButtons.OK,
-                                                 MessageBoxIcon.Error);
-                            cnn.Dispose();
-                            throw;
-                        }
-                    }
+                    CargarGridCambios();
                 }
             }
         }

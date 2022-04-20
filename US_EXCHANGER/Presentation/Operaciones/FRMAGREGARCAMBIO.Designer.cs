@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtPrecioVenta = new MetroFramework.Controls.MetroTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtPrecioCompra = new MetroFramework.Controls.MetroTextBox();
@@ -38,9 +38,13 @@
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbTipoOpe = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new US_EXCHANGER.Presentation.MenuControls.USButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.chckMpersona = new US_EXCHANGER.Presentation.UsersControls.USToggleButton.USToggleButton();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,10 +54,6 @@
             this.dtFechahasta = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dtFechadesde = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -63,7 +63,7 @@
             // label1
             // 
             this.label1.Location = new System.Drawing.Point(48, 2);
-            this.label1.Size = new System.Drawing.Size(97, 15);
+            this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.Text = "Tipo de Cambio";
             // 
             // usButton2
@@ -88,9 +88,9 @@
             // 
             // 
             this.txtPrecioVenta.CustomButton.Image = null;
-            this.txtPrecioVenta.CustomButton.Location = new System.Drawing.Point(73, 1);
+            this.txtPrecioVenta.CustomButton.Location = new System.Drawing.Point(85, 1);
             this.txtPrecioVenta.CustomButton.Name = "";
-            this.txtPrecioVenta.CustomButton.Size = new System.Drawing.Size(21, 25);
+            this.txtPrecioVenta.CustomButton.Size = new System.Drawing.Size(25, 25);
             this.txtPrecioVenta.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtPrecioVenta.CustomButton.TabIndex = 1;
             this.txtPrecioVenta.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -120,7 +120,7 @@
             this.label10.Font = new System.Drawing.Font("Montserrat", 8.249999F);
             this.label10.Location = new System.Drawing.Point(474, 21);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(103, 15);
+            this.label10.Size = new System.Drawing.Size(104, 15);
             this.label10.TabIndex = 51;
             this.label10.Text = "Precio de compra";
             // 
@@ -130,9 +130,9 @@
             // 
             // 
             this.txtPrecioCompra.CustomButton.Image = null;
-            this.txtPrecioCompra.CustomButton.Location = new System.Drawing.Point(75, 1);
+            this.txtPrecioCompra.CustomButton.Location = new System.Drawing.Point(88, 1);
             this.txtPrecioCompra.CustomButton.Name = "";
-            this.txtPrecioCompra.CustomButton.Size = new System.Drawing.Size(21, 25);
+            this.txtPrecioCompra.CustomButton.Size = new System.Drawing.Size(25, 25);
             this.txtPrecioCompra.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtPrecioCompra.CustomButton.TabIndex = 1;
             this.txtPrecioCompra.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -208,7 +208,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmbTipoOpe);
             this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.dtFecha);
@@ -225,6 +225,24 @@
             this.groupBox1.TabIndex = 55;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo tipo de cambio";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Montserrat", 8.249999F);
+            this.label8.Location = new System.Drawing.Point(206, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(30, 15);
+            this.label8.TabIndex = 56;
+            this.label8.Text = "Tipo";
+            // 
+            // cmbTipoOpe
+            // 
+            this.cmbTipoOpe.FormattingEnabled = true;
+            this.cmbTipoOpe.Location = new System.Drawing.Point(209, 45);
+            this.cmbTipoOpe.Name = "cmbTipoOpe";
+            this.cmbTipoOpe.Size = new System.Drawing.Size(130, 23);
+            this.cmbTipoOpe.TabIndex = 57;
             // 
             // btnAgregar
             // 
@@ -267,6 +285,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Listado de tipos de cambio";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Montserrat", 8.249999F);
+            this.label9.Location = new System.Drawing.Point(301, 17);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(30, 15);
+            this.label9.TabIndex = 58;
+            this.label9.Text = "Tipo";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -276,6 +304,14 @@
             this.label7.Size = new System.Drawing.Size(37, 15);
             this.label7.TabIndex = 62;
             this.label7.Text = "Todas";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(304, 35);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(130, 23);
+            this.comboBox2.TabIndex = 59;
             // 
             // chckMpersona
             // 
@@ -297,11 +333,11 @@
             this.dtListado.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.dtListado.AllowUserToAddRows = false;
             this.dtListado.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Lavender;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Montserrat Medium", 8.249999F);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(74)))), ((int)(((byte)(114)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Lavender;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(74)))), ((int)(((byte)(114)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.dtListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtListado.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -393,42 +429,6 @@
             this.dtFechadesde.TabIndex = 56;
             this.dtFechadesde.Value = new System.DateTime(2022, 2, 27, 0, 0, 0, 0);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Montserrat", 8.249999F);
-            this.label8.Location = new System.Drawing.Point(206, 21);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(30, 15);
-            this.label8.TabIndex = 56;
-            this.label8.Text = "Tipo";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(209, 45);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(130, 23);
-            this.comboBox1.TabIndex = 57;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Montserrat", 8.249999F);
-            this.label9.Location = new System.Drawing.Point(301, 17);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(30, 15);
-            this.label9.TabIndex = 58;
-            this.label9.Text = "Tipo";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(304, 35);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(130, 23);
-            this.comboBox2.TabIndex = 59;
-            // 
             // FRMAGREGARCAMBIO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
@@ -481,7 +481,7 @@
         private System.Windows.Forms.Label label7;
         private UsersControls.USToggleButton.USToggleButton chckMpersona;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbTipoOpe;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBox2;
     }

@@ -28,5 +28,11 @@ namespace US_EXCHANGER.Presentation
             FrmMaestroEmpleado _Empleado = new FrmMaestroEmpleado();
             _Empleado.ShowDialog();
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            FrmMonitor _frm = new FrmMonitor();
+            _frm.ShowDialog();
+        }
     }
 }

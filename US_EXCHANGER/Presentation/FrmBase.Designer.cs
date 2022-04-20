@@ -309,7 +309,7 @@ namespace US_EXCHANGER.Presentation
             this.usexDropdownMenu1.MenuItemTextColor = System.Drawing.Color.Empty;
             this.usexDropdownMenu1.Name = "usexDropdownMenu1";
             this.usexDropdownMenu1.PrimaryColor = System.Drawing.Color.Empty;
-            this.usexDropdownMenu1.Size = new System.Drawing.Size(191, 92);
+            this.usexDropdownMenu1.Size = new System.Drawing.Size(191, 114);
             // 
             // tablasBásicasToolStripMenuItem
             // 
@@ -323,6 +323,7 @@ namespace US_EXCHANGER.Presentation
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             this.productosToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.productosToolStripMenuItem.Text = "Productos";
+            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // empresaToolStripMenuItem
             // 

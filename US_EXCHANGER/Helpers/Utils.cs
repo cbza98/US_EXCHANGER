@@ -3,7 +3,9 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -17,6 +19,7 @@ namespace US_EXCHANGER.Helpers
 {
     public static class Utils
     {
+        // Formateos
         public static decimal Returndecimal(string value)
         {
             decimal valuea = 0;
@@ -81,6 +84,136 @@ namespace US_EXCHANGER.Helpers
             return table;
         }
 
+        // Métodos SQL
+        public static void ExecuteNonQuery(string sqlSpName, SqlParameter[] dbParams)
+        {
+            SqlConnection cn = new SqlConnection(ConfigurationManager.AppSettings.Get("connectionString"));
+            SqlCommand cmd = new SqlCommand(sqlSpName, cn);
+            cmd.CommandTimeout = Convert.ToInt16(ConfigurationManager.AppSettings.Get("connectionCommandTimeout"));
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            if (dbParams != null)
+            {
+                foreach (SqlParameter dbParam in dbParams)
+                {
+                    cmd.Parameters.Add(dbParam);
+                }
+            }
+
+            cn.Open();
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (null != cn)
+                    cn.Close();
+
+            }
+        }
+        public static object ExecuteScalar(string sqlSpName, SqlParameter[] dbParams)
+        {
+            object retVal = null;
+            SqlConnection cn = new SqlConnection(ConfigurationManager.AppSettings.Get("connectionString"));
+            SqlCommand cmd = new SqlCommand(sqlSpName, cn);
+            cmd.CommandTimeout = Convert.ToInt16(ConfigurationManager.AppSettings.Get("connectionCommandTimeout"));
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            if (dbParams != null)
+            {
+                foreach (SqlParameter dbParam in dbParams)
+                {
+                    cmd.Parameters.Add(dbParam);
+                }
+            }
+
+            cn.Open();
+
+            try
+            {
+                retVal = cmd.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (null != cn)
+                    cn.Close();
+            }
+
+            return retVal;
+        }
+        public static SqlParameter MakeParam(string paramName, SqlDbType dbType, int size, object objValue)
+        {
+            SqlParameter param;
+
+            if (size > 0)
+                param = new SqlParameter(paramName, dbType, size);
+            else
+                param = new SqlParameter(paramName, dbType);
+
+            param.Value = objValue;
+
+            return param;
+        }
+        public static SqlParameter MakeParamOutput(string paramName, SqlDbType dbType, int size)
+        {
+            SqlParameter param;
+
+            if (size > 0)
+                param = new SqlParameter(paramName, dbType, size);
+            else
+                param = new SqlParameter(paramName, dbType);
+
+            param.Direction = ParameterDirection.Output;
+
+            return param;
+        }
+        public static int ExecuteNonQueryOutput(string sqlSpName, SqlParameter[] dbParams, string paramName, SqlDbType dbType, int size)
+        {
+            SqlConnection cn = new SqlConnection(ConfigurationManager.AppSettings.Get("connectionString"));
+            SqlCommand cmd = new SqlCommand(sqlSpName, cn);
+            cmd.CommandTimeout = Convert.ToInt16(ConfigurationManager.AppSettings.Get("connectionCommandTimeout"));
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            if (dbParams != null)
+            {
+                foreach (SqlParameter dbParam in dbParams)
+                    cmd.Parameters.Add(dbParam);
+            }
+            SqlParameter OutParam = MakeParamOutput(paramName, dbType, size);
+            cmd.Parameters.Add(OutParam);
+
+            cn.Open();
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (null != cn)
+                    cn.Close();
+
+            }
+            if (OutParam.Value == null) return 0;
+            else return System.Convert.ToInt16(OutParam.Value);
+        }
+
+        // Conexiones RED
         public static bool CheckForInternetConnection()
         {
             try
@@ -107,7 +240,6 @@ MessageBoxIcon.Error);
                 return false;
             }
         }
-
         public static string castURL(string url, string finalChar)
         {
             string finalUrl = url;
@@ -127,7 +259,6 @@ MessageBoxIcon.Error);
 
             return finalUrl;
         }
-
         public static string replaceEscChar(string data)
         {
             string newData = data;
@@ -148,15 +279,12 @@ MessageBoxIcon.Error);
 
             return newData.Trim();
         }
-
-
         public static void GetRuc(GetRucBean ruc)
         {
 
 
 
         }
-
         public static IRestResponse GetRucV2(GetRucBean ruc)
         {
             try
@@ -172,7 +300,6 @@ MessageBoxIcon.Error);
                 return null;
             }
         }
-
         #region MODEL_RESPONSE
 
         private class Response

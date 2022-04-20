@@ -10,11 +10,11 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using libzkfpcsharp;
+
 
 namespace US_EXCHANGER.Presentation
 {
-    public partial class FrmCapturarHuella : Demo.Form1
+    public partial class FrmCapturarHuella
     {
 
         #region Atributos
@@ -42,7 +42,7 @@ namespace US_EXCHANGER.Presentation
         #endregion
         public FrmCapturarHuella()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
         [DllImport("user32.dll", EntryPoint = "SendMessageA")]
         public static extern int SendMessage(IntPtr hwnd, int wMsg, IntPtr wParam, IntPtr lParam);
@@ -63,7 +63,7 @@ namespace US_EXCHANGER.Presentation
 
         private void cmbIdx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Inicializar();
+            //Inicializar();
         }
     }
 }

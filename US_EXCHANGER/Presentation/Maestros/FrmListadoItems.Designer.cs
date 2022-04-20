@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbTipoDocu = new System.Windows.Forms.ComboBox();
+            this.cmbTipoItem = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // usButton2
@@ -48,7 +49,7 @@
             // 
             // 
             this.txtDesc.CustomButton.Image = null;
-            this.txtDesc.CustomButton.Location = new System.Drawing.Point(293, 1);
+            this.txtDesc.CustomButton.Location = new System.Drawing.Point(352, 1);
             this.txtDesc.CustomButton.Name = "";
             this.txtDesc.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtDesc.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -57,9 +58,9 @@
             this.txtDesc.CustomButton.UseSelectable = true;
             this.txtDesc.CustomButton.Visible = false;
             this.txtDesc.Lines = new string[0];
-            this.txtDesc.Location = new System.Drawing.Point(107, 122);
+            this.txtDesc.Location = new System.Drawing.Point(75, 125);
             this.txtDesc.PromptText = "Busqueda por Nombre";
-            this.txtDesc.Size = new System.Drawing.Size(342, 23);
+            this.txtDesc.Size = new System.Drawing.Size(374, 23);
             this.txtDesc.WaterMark = "Busqueda por Nombre";
             // 
             // lblIndicadorbusqueda
@@ -77,13 +78,13 @@
             this.label7.TabIndex = 41;
             this.label7.Text = "Tipo de Item";
             // 
-            // cmbTipoDocu
+            // cmbTipoItem
             // 
-            this.cmbTipoDocu.FormattingEnabled = true;
-            this.cmbTipoDocu.Location = new System.Drawing.Point(22, 79);
-            this.cmbTipoDocu.Name = "cmbTipoDocu";
-            this.cmbTipoDocu.Size = new System.Drawing.Size(193, 21);
-            this.cmbTipoDocu.TabIndex = 42;
+            this.cmbTipoItem.FormattingEnabled = true;
+            this.cmbTipoItem.Location = new System.Drawing.Point(22, 79);
+            this.cmbTipoItem.Name = "cmbTipoItem";
+            this.cmbTipoItem.Size = new System.Drawing.Size(193, 21);
+            this.cmbTipoItem.TabIndex = 42;
             // 
             // label3
             // 
@@ -94,23 +95,23 @@
             this.label3.TabIndex = 43;
             this.label3.Text = "Categoria de Item";
             // 
-            // comboBox1
+            // cmbCategoria
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(256, 79);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(193, 21);
-            this.comboBox1.TabIndex = 44;
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(256, 79);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(193, 21);
+            this.cmbCategoria.TabIndex = 44;
             // 
             // FrmListadoItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 571);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.cmbTipoDocu);
+            this.Controls.Add(this.cmbTipoItem);
             this.Name = "FrmListadoItems";
             this.Text = "FrmListadoItems";
             this.Load += new System.EventHandler(this.FrmListadoItems_Load);
@@ -119,10 +120,12 @@
             this.Controls.SetChildIndex(this.txtDesc, 0);
             this.Controls.SetChildIndex(this.usButton1, 0);
             this.Controls.SetChildIndex(this.usButton2, 0);
-            this.Controls.SetChildIndex(this.cmbTipoDocu, 0);
+            this.Controls.SetChildIndex(this.cmbTipoItem, 0);
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.comboBox1, 0);
+            this.Controls.SetChildIndex(this.cmbCategoria, 0);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,8 +134,8 @@
         #endregion
 
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbTipoDocu;
+        private System.Windows.Forms.ComboBox cmbTipoItem;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbCategoria;
     }
 }

@@ -37,6 +37,16 @@ namespace US_EXCHANGER.Presentation.Maestros
         public FrmListadoItems()
         {
             InitializeComponent();
+  
+        }
+        private void Inicilizacion()
+        {
+            cmbCategoria.DataSource = LoadTipo();
+            cmbCategoria.ValueMember = "Numero";
+            cmbCategoria.DisplayMember = "Nombre";
+            cmbTipoItem.DataSource = LoadCategoria();
+            cmbTipoItem.ValueMember = "Numero";
+            cmbTipoItem.DisplayMember = "Nombre";
         }
         public List<OPE_DETALLE_TABLADTO> LoadTipo()
         {
@@ -67,16 +77,36 @@ namespace US_EXCHANGER.Presentation.Maestros
                     db.Open();
                 var procedure = "GetDataDTabla";
                 DynamicParameters cmd = new DynamicParameters();
-                cmd.Add("@CODIGO", "TIPO_IDEN");
+                cmd.Add("@CODIGO", "CATE_PROD");
                 listado1 = db.Query<OPE_DETALLE_TABLADTO>(procedure, cmd, commandType: System.Data.CommandType.StoredProcedure).ToList();
                 db.Dispose();
             }
             return new List<OPE_DETALLE_TABLADTO>(listado1);
 
         }
+
+
+        //public List<OPE_PRODUCTOBean> LoadProductos()
+        //{
+        //    List<OPE_DETALLE_TABLADTO> listado1 = null;
+        //    string cnn = ConfigurationManager.ConnectionStrings["Conn"].ConnectionString;
+        //    using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["Conn"].ConnectionString))
+
+        //    {
+        //        if (db.State == ConnectionState.Closed)
+        //            db.Open();
+        //        var procedure = "GetDataDTabla";
+        //        DynamicParameters cmd = new DynamicParameters();
+        //        cmd.Add("@CODIGO", "CATE_PROD");
+        //        listado1 = db.Query<OPE_DETALLE_TABLADTO>(procedure, cmd, commandType: System.Data.CommandType.StoredProcedure).ToList();
+        //        db.Dispose();
+        //    }
+        //    return new List<OPE_DETALLE_TABLADTO>(listado1);
+
+        //}
         private void FrmListadoItems_Load(object sender, EventArgs e)
         {
-
+            Inicilizacion();
         }
     }
 }

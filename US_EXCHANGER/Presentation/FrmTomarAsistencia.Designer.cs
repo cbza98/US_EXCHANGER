@@ -35,14 +35,15 @@
             // usButton2
             // 
             this.usButton2.FlatAppearance.BorderSize = 0;
-            this.usButton2.Location = new System.Drawing.Point(876, 532);
+            this.usButton2.Location = new System.Drawing.Point(868, 626);
             // 
             // usButton1
             // 
             this.usButton1.FlatAppearance.BorderSize = 0;
-            this.usButton1.Location = new System.Drawing.Point(371, 531);
+            this.usButton1.Location = new System.Drawing.Point(357, 626);
             this.usButton1.Size = new System.Drawing.Size(138, 25);
             this.usButton1.Text = "Reconectar Dispositivo";
+            this.usButton1.Visible = false;
             this.usButton1.Click += new System.EventHandler(this.usButton1_Click_1);
             // 
             // txtDesc
@@ -62,17 +63,19 @@
             this.txtDesc.Lines = new string[0];
             this.txtDesc.Location = new System.Drawing.Point(107, 65);
             this.txtDesc.PromptText = "Valide su asistencia";
+            this.txtDesc.Visible = false;
             this.txtDesc.WaterMark = "Valide su asistencia";
             // 
             // lblIndicadorbusqueda
             // 
-            this.lblIndicadorbusqueda.Location = new System.Drawing.Point(19, 68);
+            this.lblIndicadorbusqueda.Location = new System.Drawing.Point(37, 75);
             this.lblIndicadorbusqueda.Size = new System.Drawing.Size(37, 13);
             this.lblIndicadorbusqueda.Text = "Huella";
+            this.lblIndicadorbusqueda.Visible = false;
             // 
             // label2
             // 
-            this.label2.Size = new System.Drawing.Size(269, 18);
+            this.label2.Size = new System.Drawing.Size(244, 16);
             this.label2.Text = "Empresa: Unosoft Biometric Demo";
             // 
             // label1
@@ -91,7 +94,7 @@
             this.usButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.usButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.usButton3.ForeColor = System.Drawing.Color.White;
-            this.usButton3.Location = new System.Drawing.Point(655, 532);
+            this.usButton3.Location = new System.Drawing.Point(641, 627);
             this.usButton3.Name = "usButton3";
             this.usButton3.Size = new System.Drawing.Size(166, 25);
             this.usButton3.TabIndex = 21;
@@ -105,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 578);
+            this.ClientSize = new System.Drawing.Size(1046, 664);
             this.Controls.Add(this.usButton3);
             this.Name = "FrmTomarAsistencia";
             this.Text = "FrmTomarAsistencia";
